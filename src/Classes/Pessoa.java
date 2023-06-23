@@ -8,8 +8,8 @@ public abstract class Pessoa {
     //Declaração dos Atributos
     protected int       id; 
     protected String    nome;
-    protected String    RG;
-    protected String    CPF;
+    protected String    rg;
+    protected String    cpf;
     protected String    dataNascimento;
     protected String    telefone;
     
@@ -18,11 +18,11 @@ public abstract class Pessoa {
     public Pessoa() {} 
     
     // inicialização recebendo todos os argumentos de acordo com os atributos
-    public Pessoa(int id, String nome, String RG, String CPF, String dataNascimento, String telefone) { 
+    public Pessoa(int id, String nome, String rg, String cpf, String dataNascimento, String telefone) { 
         this.id             = id;
         this.nome           = nome;
-        this.RG             = RG;
-        this.CPF            = CPF;
+        this.rg             = rg;
+        this.cpf            = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone       = telefone;
     }
@@ -44,20 +44,20 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public String getRG() {
-        return RG;
+    public String getRg() {
+        return rg;
     }
 
-    public void setRG(String RG) {
-        this.RG = RG;
+    public void setRG(String rg) {
+        this.rg = rg;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getDataNascimento() {

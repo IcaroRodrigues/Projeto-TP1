@@ -19,8 +19,8 @@ class Funcionario extends Pessoa {
     public Funcionario() {} 
     
     //inicialização recebendo todos os argumentos de acordo com os atributos
-    public Funcionario(int id, String nome, String RG, String CPF, String dataNascimento, String telefone, String funcao, float salario, String senha) {
-        super(id, nome, RG, CPF, dataNascimento, telefone);
+    public Funcionario(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha) {
+        super(id, nome, rg, cpf, dataNascimento, telefone);
         this.funcao     = funcao;
         this.salario    = salario;
         this.senha      = senha;
@@ -53,8 +53,8 @@ class Funcionario extends Pessoa {
     }*/ 
     
     //Método para validar senha
-    public boolean validarSenha(String CPF, String senha){
-        return this.CPF.equals(CPF) && this.senha.equals(senha);
+    public boolean validarSenha(String cpf, String senha){
+        return this.cpf.equals(cpf) && this.senha.equals(senha);
     }
     
     //Método para cálculo de sálario

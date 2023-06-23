@@ -10,24 +10,24 @@ package Classes;
  */
 class Cliente extends Pessoa {
     //Declaração dos Atributos
-    private String ocupação;
+    private String ocupacao;
     
     //Declaração dos Métodos Construtores
     //inicialização de todos os atributos com valores default
     public Cliente() {} 
 
     // inicialização recebendo todos os argumentos de acordo com os atributos
-    public Cliente(String ocupação, int id, String nome, String RG, String CPF, String dataNascimento, String telefone) {
-        super(id, nome, RG, CPF, dataNascimento, telefone);
-        this.ocupação = ocupação;
+    public Cliente(String ocupacao, int id, String nome, String rg, String cpf, String dataNascimento, String telefone) {
+        super(id, nome, rg, cpf, dataNascimento, telefone);
+        this.ocupacao = ocupacao;
     }
     
     //Declaração dos Métodos gets e sets
-    public String getOcupação() {
-        return ocupação;
+    public String getOcupacao() {
+        return ocupacao;
     }
 
-    public void setOcupação(String ocupação) {
-        this.ocupação = ocupação;
+    public void setOcupacao(String ocupacao) {
+        this.ocupacao = ocupacao;
     }
 }
