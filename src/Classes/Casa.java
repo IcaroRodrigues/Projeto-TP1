@@ -7,8 +7,8 @@ package Classes;
 import java.util.Date;
 
 /**
- *
- * @author dyesi
+ * Classe que representa um apartamento.
+ * Herda da classe Imovel.
  */
 public class Casa extends Imovel{
     private double tamanhoDoLote;

@@ -95,5 +95,27 @@ public class Apartamento extends Imovel{
         this.idadeDoImovel = idadeDoImovel;
     }
 
+    public boolean isAluga() {
+	return aluga;
+    }
 
+    public void setAluga(boolean aluga) {
+	this.aluga = aluga;
+    }
+
+    public boolean isVende() {
+	return vende;
+    }
+
+    public void setVende(boolean vende) {
+	this.vende = vende;
+    }
+
+    public boolean isDisponivel() {
+	return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+	this.disponivel = disponivel;
+    }
 }
