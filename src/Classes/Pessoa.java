@@ -1,11 +1,14 @@
 package Classes;
 
 /**
- *
- * @author Gabriel Santos Pereira
- */
+* Classe abstrata que representa uma pessoa.
+* Contém informações básicas de identificação e contato de uma pessoa.
+* Contem apneas métodos concretos.
+* 
+* @author Gabriel Santos Pereira
+*/
 public abstract class Pessoa {
-    //Declaração dos Atributos
+    // Declaração dos Atributos
     protected int       id; 
     protected String    nome;
     protected String    rg;
@@ -13,11 +16,11 @@ public abstract class Pessoa {
     protected String    dataNascimento;
     protected String    telefone;
     
-    //Declaração dos Métodos Construtores
-    //inicialização de todos os atributos com valores default
+    // Declaração dos Métodos Construtores
+    // Inicialização de todos os atributos com valores default
     public Pessoa() {} 
     
-    // inicialização recebendo todos os argumentos de acordo com os atributos
+    // Inicialização recebendo todos os argumentos de acordo com os atributos
     public Pessoa(int id, String nome, String rg, String cpf, String dataNascimento, String telefone) { 
         this.id             = id;
         this.nome           = nome;
@@ -27,7 +30,7 @@ public abstract class Pessoa {
         this.telefone       = telefone;
     }
 
-    //Declaração dos Métodos gets e sets
+    // Declaração dos Métodos gets e sets
     public int getId() {
         return id;
     }
@@ -48,7 +51,7 @@ public abstract class Pessoa {
         return rg;
     }
 
-    public void setRG(String rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
