@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlDadosCorretor" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlDadosCorretor" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="pnlDadosCorretor">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnSalvarCorretor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="btnLimparCorretor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnLimparCancelar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                  <Component id="txtNomeCorretor" min="-2" pref="215" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblNomeCorretor" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblRgCorretor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="txtRgCorretor" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblCpfCorretor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="txtCpfCorretor" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblSenhaCorretor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSalarioCorretor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTelefoneCorretor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCreciCorretor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtSalarioCorretor" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtTelefoneCorretor" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="txtSenhaCorretor" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="txtCreciCorretor" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblDataDeNascimentoCorretor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtDataDeNascimentoCorretor" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNomeCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNomeCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblRgCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtRgCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCpfCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCpfCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDataDeNascimentoCorretor" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="txtDataDeNascimentoCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblTelefoneCorretor" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="txtTelefoneCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblSalarioCorretor" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="txtSalarioCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblSenhaCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSenhaCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCreciCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCreciCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnSalvarCorretor" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnLimparCorretor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLimparCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblNomeCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nome Corretor:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblRgCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RG Corretor:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCpfCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CPF Corretor:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDataDeNascimentoCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTelefoneCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Telefone:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSalarioCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sal&#xe1;rio:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSenhaCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Senha:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCreciCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Creci Corretor: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNomeCorretor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtRgCorretor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRgCorretorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCpfCorretor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtDataDeNascimentoCorretor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTelefoneCorretor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefoneCorretorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSalarioCorretor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSenhaCorretor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCreciCorretor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCreciCorretorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSalvarCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salvar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarCorretorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLimparCorretor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Limpar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparCorretorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLimparCancelar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparCancelarActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
