@@ -10,7 +10,7 @@ package Classes;
 * 
 * @author Gabriel Santos Pereira
 */
-class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa {
     // Declaração dos Atributos
     protected String    funcao;
     protected float     salario;
