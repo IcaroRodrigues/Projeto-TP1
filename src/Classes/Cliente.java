@@ -5,24 +5,26 @@
 package Classes;
 
 /**
- *
+ * Classe que representa um cliente.
+ * Contém as informações básicas de identificação e contato de uma pessoa derivadas da classe Pessoa e a ocupação do cliente.
+ * 
  * @author Gabriel Santos Pereira
  */
-class Cliente extends Pessoa {
-    //Declaração dos Atributos
+public class Cliente extends Pessoa {
+    // Declaração dos Atributos
     private String ocupacao;
     
-    //Declaração dos Métodos Construtores
-    //inicialização de todos os atributos com valores default
+    // Declaração dos Métodos Construtores
+    // Inicialização de todos os atributos com valores default
     public Cliente() {} 
 
-    // inicialização recebendo todos os argumentos de acordo com os atributos
-    public Cliente(String ocupacao, int id, String nome, String rg, String cpf, String dataNascimento, String telefone) {
+    // Inicialização recebendo todos os argumentos de acordo com os atributos
+    public Cliente(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String ocupacao) {
         super(id, nome, rg, cpf, dataNascimento, telefone);
         this.ocupacao = ocupacao;
     }
     
-    //Declaração dos Métodos gets e sets
+    // Declaração dos Métodos gets e sets
     public String getOcupacao() {
         return ocupacao;
     }
