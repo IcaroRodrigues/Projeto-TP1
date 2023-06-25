@@ -8,7 +8,7 @@ package Classes;
  *
  * @author Gabriel Santos Pereira
  */
-class Corretor extends Funcionario{
+public class Corretor extends Funcionario{
     //Declaração dos Atributos
     private String creci;
     
