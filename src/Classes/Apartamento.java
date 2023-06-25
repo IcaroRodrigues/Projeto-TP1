@@ -17,13 +17,14 @@ public class Apartamento extends Imovel{
     private int qntDePavimentos;
     private double valorCondominio;
     private int idadeDoImovel;
-    private boolean alugado;
-    private boolean vendido;
+    private boolean aluga;
+    private boolean vende;
+    private boolean disponivel;
 
     public Apartamento() {
     }
 
-    public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, double valorCondominio, int idadeDoImovel, boolean alugado, boolean vendido, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
+    public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, double valorCondominio, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.numeroDoAndar = numeroDoAndar;
         this.numeroDoApartamento = numeroDoApartamento;
@@ -31,8 +32,9 @@ public class Apartamento extends Imovel{
         this.qntDePavimentos = qntDePavimentos;
         this.valorCondominio = valorCondominio;
         this.idadeDoImovel = idadeDoImovel;
-        this.alugado = alugado;
-        this.vendido = vendido;
+        this.aluga = aluga;
+        this.vende = vende;
+	this.disponivel = disponivel;
     }
 
     public double calcularAluguel(int qntDePavimentos, double valorDaCompra){
@@ -93,19 +95,5 @@ public class Apartamento extends Imovel{
         this.idadeDoImovel = idadeDoImovel;
     }
 
-    public boolean isAlugado() {
-        return alugado;
-    }
 
-    public void setAlugado(boolean alugado) {
-        this.alugado = alugado;
-    }
-
-    public boolean isVendido() {
-        return vendido;
-    }
-
-    public void setVendido(boolean vendido) {
-        this.vendido = vendido;
-    }
 }

@@ -17,13 +17,14 @@ public class Casa extends Imovel{
     private int qntDeComodos;
     private int qntDePavimentos;
     private int idadeDoImovel;
-    private boolean alugado;
-    private boolean vendido;
+    private boolean aluga;
+    private boolean vende;
+    private boolean disponivel;
 
     public Casa() {
     }
 
-    public Casa(double tamanhoDoLote, double areaConstruida, int numeroDaCasa, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, boolean alugado, boolean vendido, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
+    public Casa(double tamanhoDoLote, double areaConstruida, int numeroDaCasa, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.tamanhoDoLote = tamanhoDoLote;
         this.areaConstruida = areaConstruida;
@@ -31,8 +32,9 @@ public class Casa extends Imovel{
         this.qntDeComodos = qntDeComodos;
         this.qntDePavimentos = qntDePavimentos;
         this.idadeDoImovel = idadeDoImovel;
-        this.alugado = alugado;
-        this.vendido = vendido;
+        this.aluga = aluga;
+        this.vende = vende;
+	this.disponivel = disponivel;
     }
     
     public double calcularAluguel(int qntDePavimentos, int qntDeComodos, double valorDaCompra){
@@ -102,20 +104,27 @@ public class Casa extends Imovel{
         this.qntDePavimentos = qntDePavimentos;
     }
 
-    public boolean isAlugado() {
-        return alugado;
+    public boolean isAluga() {
+	return aluga;
     }
 
-    public void setAlugado(boolean alugado) {
-        this.alugado = alugado;
+    public void setAluga(boolean aluga) {
+	this.aluga = aluga;
     }
 
-    public boolean isVendido() {
-        return vendido;
+    public boolean isVende() {
+	return vende;
     }
 
-    public void setVendido(boolean vendido) {
-        this.vendido = vendido;
+    public void setVende(boolean vende) {
+	this.vende = vende;
     }
-    
+
+    public boolean isDisponivel() {
+	return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+	this.disponivel = disponivel;
+    }
 }
