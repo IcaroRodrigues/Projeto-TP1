@@ -18,6 +18,7 @@ public class Imobiliaria {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+/**
         String url = "jdbc:mysql://localhost:3306/Imobiliaria";
         String username = "usuario";
         String password = "";
@@ -33,7 +34,7 @@ public class Imobiliaria {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
     }
     
 }

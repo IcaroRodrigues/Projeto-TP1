@@ -67,7 +67,7 @@
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dataAquisi" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtDataAquisicaoImovel" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
@@ -82,16 +82,16 @@
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="valorCompra" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="22" max="32767" attributes="0"/>
                                       <Component id="txtValorImovel" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel3" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rua" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="bairro" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="cep" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="cidade" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -106,7 +106,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="titulo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
@@ -125,7 +125,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="titulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,32 +137,32 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rua" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtRuaImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bairro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtBairroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cep" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCepImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cidade" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCidadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="valorCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataAquisi" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDataAquisicaoImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -221,37 +221,37 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioTipoApartamentoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="titulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro de Im&#xf3;vel"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="rua">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rua:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="bairro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bairro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="cep">
           <Properties>
             <Property name="text" type="java.lang.String" value="CEP:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="cidade">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cidade:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="valorCompra">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valor da compra:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="dataAquisi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data da Aquisi&#xe7;&#xe3;o:"/>
           </Properties>
@@ -264,8 +264,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="areaLote" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numeroLote" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -285,12 +285,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numeroLote" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNumeroLote" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="areaLote" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtAreaLote" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -300,12 +300,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="numeroLote">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero do lote:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="areaLote">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xc1;rea do lote:"/>
               </Properties>
@@ -354,11 +354,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVoltar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
