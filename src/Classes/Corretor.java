@@ -16,7 +16,7 @@ public class Corretor extends Funcionario{
     
     // Declaração dos Métodos Construtores
     // Inicialização de todos os atributos com valores default
-    public Corretor(String creci) {}
+    public Corretor() {}
 
     // Inicialização recebendo todos os argumentos de acordo com os atributos
     public Corretor(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm, String creci) {
