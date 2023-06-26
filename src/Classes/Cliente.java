@@ -6,19 +6,17 @@ package Classes;
 
 /**
 * Classe que representa um cliente.
-* Contém as informações básicas de identificação e contato de uma pessoa derivadas da classe Pessoa e a ocupação do cliente.
-* 
-* @author Gabriel Santos Pereira
+* Contém as informações básicas de identificação e contato de uma pessoa derivadas da classe Pessoa
+ e a ocupação do cliente.
 */
 public class Cliente extends Pessoa {
     // Declaração dos Atributos
     private String ocupacao;
     
-    // Declaração dos Métodos Construtores
-    // Inicialização de todos os atributos com valores default
+    /** Construtor vazio da classe Cliente.*/
     public Cliente() {} 
 
-    // Inicialização recebendo todos os argumentos de acordo com os atributos
+    /** Construtor que inicializa todas as propriedades da classe Cliente.*/
     public Cliente(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String ocupacao) {
         super(id, nome, rg, cpf, dataNascimento, telefone);
         this.ocupacao = ocupacao;

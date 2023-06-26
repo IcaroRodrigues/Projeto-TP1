@@ -6,9 +6,8 @@ package Classes;
 
 /**
 * Classe que representa um funcionario.
-* Contém as informações básicas de identificação e contato de uma pessoa derivadas da classe Pessoa e a demais informações de um funcionario.
-* 
-* @author Gabriel Santos Pereira
+* Contém as informações básicas de identificação e contato de uma pessoa derivadas da classe Pessoa
+  e a demais informações de um funcionario.
 */
 public class Funcionario extends Pessoa {
     // Declaração dos Atributos
@@ -17,11 +16,10 @@ public class Funcionario extends Pessoa {
     protected String    senha;
     protected boolean   adm;
     
-    // Declaração dos Métodos Construtores
-    // Inicialização de todos os atributos com valores default
+    /** Construtor vazio da classe Funcionário. */
     public Funcionario() {} 
     
-    // Inicialização recebendo todos os argumentos de acordo com os atributos
+    /** Construtor que inicializa todas as propriedades da classe Funcionario.*/
     public Funcionario(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm) {
         super(id, nome, rg, cpf, dataNascimento, telefone);
         this.funcao     = funcao;
@@ -29,7 +27,6 @@ public class Funcionario extends Pessoa {
         this.senha      = senha;
         this.adm        = adm;
     }
-    
     
     // Declaração dos Métodos gets e sets
     public String getFuncao() {
@@ -47,21 +44,21 @@ public class Funcionario extends Pessoa {
     public void setSalario(float salario) {
         this.salario = salario;
     }
-    /* É preciso get e set de senha?
+    
     public String getSenha() {
         return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }*/ 
+    }
     
-    // Método para validar senha
+    /** Método para validar senha */
     public boolean validarSenha(String cpf, String senha){
         return this.cpf.equals(cpf) && this.senha.equals(senha);
     }
     
-    // Método para cálculo de sálario
+    /** Método para cálculo de sálario */
     public float calculaSalario(float salarioBase, int quantidadeDeVendas, float comissao){
         float salario = 0; 
         return salario = (salarioBase + (quantidadeDeVendas * comissao));

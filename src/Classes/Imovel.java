@@ -7,10 +7,10 @@ package Classes;
 import java.util.Date;
 
 /**
- *
- * @author dyesi
+ * Classe que representa um imóvel.
  */
-public abstract class Imovel {
+public class Imovel {
+    // Declaração dos Atributos
     protected int id;
     protected String rua;
     protected String bairro;
@@ -18,10 +18,11 @@ public abstract class Imovel {
     protected String cidade;
     protected double valorDaCompra;
     protected Date dataDaAquisicao;
+    
+    /** Construtor vazio da classe Imovel. */
+    public Imovel() {}
 
-    public Imovel() {
-    }
-
+    /** Construtor que inicializa todas as propriedades da classe Apartamento. */
     public Imovel(int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
         this.id = id;
         this.rua = rua;
@@ -32,10 +33,12 @@ public abstract class Imovel {
         this.dataDaAquisicao = dataDaAquisicao;
     }
     
+    /** Metodo que calcula o valor de venda sendo 120%do valor da aquisição.*/
     public double calcularVenda(double valorDaCompra){
         return (valorDaCompra * 0.2) +  valorDaCompra;
     }
     
+    // Declaração dos Métodos gets e sets
     public int getId() {
         return id;
     }

@@ -11,6 +11,7 @@ import java.util.Date;
  * Herda da classe Imovel.
  */
 public class Casa extends Imovel{
+    // Declaração dos Atributos
     private double tamanhoDoLote;
     private double areaConstruida;
     private int numeroDaCasa;
@@ -21,9 +22,10 @@ public class Casa extends Imovel{
     private boolean vende;
     private boolean disponivel;
 
-    public Casa() {
-    }
+    /** Construtor vazio da classe Casa.*/
+    public Casa() {}
 
+    /** Construtor que inicializa todas as propriedades da classe Casa.*/
     public Casa(double tamanhoDoLote, double areaConstruida, int numeroDaCasa, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.tamanhoDoLote = tamanhoDoLote;
@@ -37,6 +39,12 @@ public class Casa extends Imovel{
 	this.disponivel = disponivel;
     }
     
+    /** Metodo que calcula o valor do aluguél.
+    *	Se a quantidade de cômodos excede 5 o valor do aluguél é 1% do valor da aquisição 
+	multiplicado pela quantidade de pavimentos e pela quandidade de cômodos que excedem 5.
+    *	Se a quantidade de cômodos for igual ou menor que 5, então o valor do aluguel é 1% do
+	valor de compra multiplicado pela quantidade de pavimentos.
+    */
     public double calcularAluguel(int qntDePavimentos, int qntDeComodos, double valorDaCompra){
         if (qntDeComodos <=5) {
             return (valorDaCompra * 0.01)*qntDePavimentos ;
@@ -45,6 +53,14 @@ public class Casa extends Imovel{
         }
     }
     
+    /** Metodo que calcula o valor de venda da casa.
+    *	Se a quantidade de cômodos excede 5 o valor da venda é preço calculado 
+	em imóvel(120%do valor da compra) mais 10% do valor da aquisição multiplicado
+	pela quantidade de pavimentos e pela quandidade de cômodos que excedem 5.
+    *	Se a quantidade de cômodos for igual ou menor que 5, então o valor da venda é
+	o preço calculado em imóvel(120%do valor da compra) mais 10% do
+	valor da aquisição multiplicado pela quandtidade de pavimentos.
+    */
     @Override
     public double calcularVenda(double valorDaCompra){
         double preco = super.calcularVenda(valorDaCompra);
@@ -55,7 +71,7 @@ public class Casa extends Imovel{
         }
     }
     
-    
+    // Declaração dos Métodos gets e sets
     public double getTamanhoDoLote() {
         return tamanhoDoLote;
     }

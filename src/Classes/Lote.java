@@ -7,24 +7,27 @@ package Classes;
 import java.util.Date;
 
 /**
- *
- * @author dyesi
- */
+ * Classe que representa um lote.
+ * Herda da classe Imovel.
+*/
 public class Lote extends Imovel{
+    // Declaração dos Atributos
     private int numeroDoLote;
     private double areaDoLote;
     private boolean vendido;
 
-    public Lote() {
-    }
-
+    /** Construtor vazio da classe Lote. */
+    public Lote() {}
+    
+    /** Construtor que inicializa todas as propriedades da classe Lote.*/
     public Lote(int numeroDoLote, double areaDoLote, boolean vendido, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.numeroDoLote = numeroDoLote;
         this.areaDoLote = areaDoLote;
         this.vendido = vendido;
     }
-    
+
+    // Declaração dos Métodos gets e sets
     public int getNumeroDoLote() {
         return numeroDoLote;
     }

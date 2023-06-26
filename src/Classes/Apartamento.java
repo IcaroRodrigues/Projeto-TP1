@@ -7,10 +7,11 @@ package Classes;
 import java.util.Date;
 
 /**
- *
- * @author dyesi
+ * Classe que representa um apartamento.
+ * Herda da classe Imovel.
  */
 public class Apartamento extends Imovel{
+    // Declaração dos Atributos
     private int numeroDoAndar;
     private int numeroDoApartamento;
     private int qntDeComodos;
@@ -20,10 +21,11 @@ public class Apartamento extends Imovel{
     private boolean aluga;
     private boolean vende;
     private boolean disponivel;
+    
+    /** Construtor vazio da classe Apartamento.*/
+    public Apartamento() {}
 
-    public Apartamento() {
-    }
-
+    /** Construtor que inicializa todas as propriedades da classe Apartamento.*/
     public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, double valorCondominio, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.numeroDoAndar = numeroDoAndar;
@@ -36,17 +38,22 @@ public class Apartamento extends Imovel{
         this.vende = vende;
 	this.disponivel = disponivel;
     }
-
+    
+    /** Metodo que calcula o valor do aluguél sendo 1% do valor de aquisição do imóvel multiplicado 
+	pela quandtidade de pavimentos*/
     public double calcularAluguel(int qntDePavimentos, double valorDaCompra){
         return (valorDaCompra * 0.01) * qntDePavimentos ; 
     }
-    
+
+    /** Metodo que calcula o valor de venda sendo o preço calculado em imóvel(120%do valor da compra) 
+	mais 10% do valor da compra multiplicado pela quantidade de pavimentos*/
     @Override
     public double calcularVenda(double valorDaCompra){
         double preco = super.calcularVenda(valorDaCompra);
         return preco +  (this.qntDePavimentos * (valorDaCompra * 0.1));
     }
     
+    // Declaração dos Métodos gets e sets
     public int getNumeroDoAndar() {
         return numeroDoAndar;
     }
