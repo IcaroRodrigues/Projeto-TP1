@@ -119,7 +119,6 @@ public class Transacao extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         corretorCpfInput.setEnabled(false);
-        corretorCpfInput.setOpaque(false);
         corretorCpfInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 corretorCpfInputActionPerformed(evt);
@@ -132,7 +131,6 @@ public class Transacao extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         corretorTelefoneInput.setEnabled(false);
-        corretorTelefoneInput.setOpaque(false);
 
         javax.swing.GroupLayout pnlDadosCorretorLayout = new javax.swing.GroupLayout(pnlDadosCorretor);
         pnlDadosCorretor.setLayout(pnlDadosCorretorLayout);
