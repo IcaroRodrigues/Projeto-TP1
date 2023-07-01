@@ -20,7 +20,7 @@ public class Lote extends Imovel{
     public Lote() {}
     
     /** Construtor que inicializa todas as propriedades da classe Lote.*/
-    public Lote(int numeroDoLote, double areaDoLote, boolean vendido, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, double valorDaVenda, Date dataDaAquisicao) {
+    public Lote(int numeroDoLote, double areaDoLote, boolean vendido, int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
         super(id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
         this.numeroDoLote = numeroDoLote;
         this.areaDoLote = areaDoLote;
