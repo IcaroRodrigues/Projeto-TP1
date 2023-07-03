@@ -120,48 +120,46 @@ public class CadastroCorretor extends javax.swing.JFrame {
         pnlDadosCorretorLayout.setHorizontalGroup(
             pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                        .addComponent(btnSalvarCorretor)
-                        .addGap(135, 135, 135)
-                        .addComponent(btnLimparCorretor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimparCancelar)
-                        .addGap(45, 45, 45))
-                    .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(77, 77, 77)
+                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
+                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSenhaCorretor)
+                            .addComponent(lblCreciCorretor)
+                            .addComponent(btnSalvarCorretor))
+                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addComponent(txtNomeCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblNomeCorretor)
-                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addComponent(lblRgCorretor)
-                                .addGap(63, 63, 63)
-                                .addComponent(txtRgCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addComponent(lblCpfCorretor)
-                                .addGap(57, 57, 57)
-                                .addComponent(txtCpfCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSenhaCorretor)
-                                    .addComponent(lblSalarioCorretor)
-                                    .addComponent(lblTelefoneCorretor)
-                                    .addComponent(lblCreciCorretor))
                                 .addGap(48, 48, 48)
-                                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSalarioCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefoneCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSenhaCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCreciCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosCorretorLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblDataDeNascimentoCorretor)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDataDeNascimentoCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(305, 305, 305))))
+                                .addComponent(btnLimparCorretor)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnLimparCancelar))
+                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtSenhaCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCreciCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSalarioCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTelefoneCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(lblTelefoneCorretor, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSalarioCorretor, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
+                            .addComponent(lblNomeCorretor)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNomeCorretor))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
+                            .addComponent(lblDataDeNascimentoCorretor)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtDataDeNascimentoCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
+                            .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblRgCorretor)
+                                .addComponent(lblCpfCorretor))
+                            .addGap(23, 23, 23)
+                            .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCpfCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                .addComponent(txtRgCorretor)))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         pnlDadosCorretorLayout.setVerticalGroup(
             pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,12 +197,11 @@ public class CadastroCorretor extends javax.swing.JFrame {
                     .addComponent(lblCreciCorretor)
                     .addComponent(txtCreciCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalvarCorretor)
-                    .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLimparCorretor)
-                        .addComponent(btnLimparCancelar)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimparCorretor)
+                    .addComponent(btnLimparCancelar)
+                    .addComponent(btnSalvarCorretor))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,16 +209,16 @@ public class CadastroCorretor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(233, 233, 233)
+                .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(323, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         pack();
@@ -333,73 +330,25 @@ public class CadastroCorretor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarCliente;
-    private javax.swing.JButton btnCancelarCliente1;
-    private javax.swing.JButton btnCancelarCliente2;
     private javax.swing.JButton btnLimparCancelar;
-    private javax.swing.JButton btnLimparCliente;
-    private javax.swing.JButton btnLimparCliente1;
-    private javax.swing.JButton btnLimparCliente2;
     private javax.swing.JButton btnLimparCorretor;
-    private javax.swing.JButton btnSalvarCliente;
-    private javax.swing.JButton btnSalvarCliente1;
-    private javax.swing.JButton btnSalvarCliente2;
     private javax.swing.JButton btnSalvarCorretor;
-    private javax.swing.JLabel lblCpfCliente;
-    private javax.swing.JLabel lblCpfCliente1;
-    private javax.swing.JLabel lblCpfCliente2;
     private javax.swing.JLabel lblCpfCorretor;
     private javax.swing.JLabel lblCreciCorretor;
-    private javax.swing.JLabel lblDataDeNascimentoCliente;
-    private javax.swing.JLabel lblDataDeNascimentoCliente1;
-    private javax.swing.JLabel lblDataDeNascimentoCliente2;
     private javax.swing.JLabel lblDataDeNascimentoCorretor;
-    private javax.swing.JLabel lblNomeCliente;
-    private javax.swing.JLabel lblNomeCliente1;
-    private javax.swing.JLabel lblNomeCliente2;
     private javax.swing.JLabel lblNomeCorretor;
-    private javax.swing.JLabel lblOcupacaoCliente;
-    private javax.swing.JLabel lblOcupacaoCliente1;
-    private javax.swing.JLabel lblOcupacaoCliente2;
-    private javax.swing.JLabel lblRgCliente;
-    private javax.swing.JLabel lblRgCliente1;
-    private javax.swing.JLabel lblRgCliente2;
     private javax.swing.JLabel lblRgCorretor;
     private javax.swing.JLabel lblSalarioCorretor;
     private javax.swing.JLabel lblSenhaCorretor;
-    private javax.swing.JLabel lblTelefoneCliente;
-    private javax.swing.JLabel lblTelefoneCliente1;
-    private javax.swing.JLabel lblTelefoneCliente2;
     private javax.swing.JLabel lblTelefoneCorretor;
-    private javax.swing.JPanel pnlDadosCliente;
-    private javax.swing.JPanel pnlDadosCliente1;
-    private javax.swing.JPanel pnlDadosCliente2;
     private javax.swing.JPanel pnlDadosCorretor;
-    private javax.swing.JTextField txtCpfCliente;
-    private javax.swing.JTextField txtCpfCliente1;
-    private javax.swing.JTextField txtCpfCliente2;
     private javax.swing.JTextField txtCpfCorretor;
     private javax.swing.JTextField txtCreciCorretor;
-    private javax.swing.JTextField txtDataDeNascimentoCliente;
-    private javax.swing.JTextField txtDataDeNascimentoCliente1;
-    private javax.swing.JTextField txtDataDeNascimentoCliente2;
     private javax.swing.JTextField txtDataDeNascimentoCorretor;
-    private javax.swing.JTextField txtNomeCliente;
-    private javax.swing.JTextField txtNomeCliente1;
-    private javax.swing.JTextField txtNomeCliente2;
     private javax.swing.JTextField txtNomeCorretor;
-    private javax.swing.JTextField txtOcupacaoCliente;
-    private javax.swing.JTextField txtOcupacaoCliente1;
-    private javax.swing.JTextField txtOcupacaoCliente2;
-    private javax.swing.JTextField txtRgCliente;
-    private javax.swing.JTextField txtRgCliente1;
-    private javax.swing.JTextField txtRgCliente2;
     private javax.swing.JTextField txtRgCorretor;
     private javax.swing.JTextField txtSalarioCorretor;
     private javax.swing.JTextField txtSenhaCorretor;
-    private javax.swing.JTextField txtTelefoneCliente;
-    private javax.swing.JTextField txtTelefoneCliente1;
-    private javax.swing.JTextField txtTelefoneCliente2;
     private javax.swing.JTextField txtTelefoneCorretor;
     // End of variables declaration//GEN-END:variables
 }

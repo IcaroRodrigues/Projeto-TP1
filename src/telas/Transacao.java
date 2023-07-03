@@ -37,7 +37,7 @@ public class Transacao extends javax.swing.JFrame {
 
         DefaultTableModel tabelaImovel = (DefaultTableModel) this.tabelaImovel.getModel();
 
-        this.imovel = new Casa(1500, 1500, 206, 4, 1, 12, false, true, true, 1, "algo", "algo", "99999999", "Brasilia", 120000, 100000, new Date());
+        this.imovel = new Casa(1500, 1500, 206, 4, 1, 12, false, true, true, 1, "algo", "algo", "99999999", "Brasilia", 100000, new Date());
 
         Object[] dadosImovel = {imovel.getCidade(), imovel.getRua(), imovel.getBairro(), imovel.getValorDaCompra()};
         tabelaImovel.addRow(dadosImovel);
