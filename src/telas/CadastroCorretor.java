@@ -230,7 +230,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
     txtTelefoneCorretor.setText("");
     txtSalarioCorretor.setText("");
     txtSenhaCorretor.setText("");
-    txtCreciCorretor.setText("");
     }//GEN-LAST:event_btnLimparCorretorActionPerformed
 
     private void btnSalvarCorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCorretorActionPerformed
@@ -252,8 +251,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
     } else if (txtSalarioCorretor.getText().equals("")){
         JOptionPane.showMessageDialog(null, "Todos os campos precisam ser inseridos!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
     } else if (txtSenhaCorretor.getText().equals("")){
-        JOptionPane.showMessageDialog(null, "Todos os campos precisam ser inseridos!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
-    } else if (txtCreciCorretor.getText().equals("")){
         JOptionPane.showMessageDialog(null, "Todos os campos precisam ser inseridos!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
     } else {
         //int idCorretor_ = Integer.parseInt(txtIdCliente.getText());
