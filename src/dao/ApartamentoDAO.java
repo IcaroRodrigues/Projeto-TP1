@@ -22,6 +22,54 @@ public class ApartamentoDAO {
 	con = Principal.getConnection();
     }
     
+    public boolean salvar(Apartamento apartamento){
+	// query para inserir uma nova casa
+	String query = "INSERT INTO casa (imovel_id, numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, idadeDoImovel) VALUES (?, ?, ?, ?, ?, ?)";
+	PreparedStatement stmt = null;
+
+	try {
+	    stmt = con.prepareStatement(query);
+	    stmt.setInt(1, apartamento.getId());
+	    stmt.setInt(2, apartamento.getNumeroDoAndar());
+	    stmt.setInt(3, apartamento.getNumeroDoApartamento());
+	    stmt.setInt(4, apartamento.getQntDeComodos());
+	    stmt.setInt(5, apartamento.getQntDePavimentos());
+	    stmt.setInt(6, apartamento.getIdadeDoImovel());
+	    // salva os dados no bd
+	    stmt.executeUpdate();
+	    return true;
+	} catch (SQLException ex) {
+	    System.out.println("erro: "+ex);
+	    return false;
+	} finally {
+	    Principal.closeConnection(con, stmt);
+	}
+    }
+
+    public boolean editar(Apartamento apartamento){
+	// query para inserir um novo imóvel
+	String query = "UPDATE imovel SET numeroDoAndar = ?, numeroDoApartamento = ?, qntDeComodos = ?, qntDePavimentos = ?, idadeDoImovel = ?  WHERE id = ?";
+	PreparedStatement stmt = null;
+
+	try {
+	    stmt = con.prepareStatement(query);
+	    stmt.setInt(1, apartamento.getNumeroDoAndar());
+	    stmt.setInt(2, apartamento.getNumeroDoApartamento());
+	    stmt.setInt(3, apartamento.getQntDeComodos());
+	    stmt.setInt(4, apartamento.getQntDePavimentos());
+	    stmt.setInt(5, apartamento.getIdadeDoImovel());
+	    stmt.setInt(6, apartamento.getId());
+	    
+	    // salva os dados no bd
+	    stmt.executeUpdate();
+	    return true;
+	} catch (SQLException ex) {
+	    System.out.println("erro: "+ex);
+	    return false;
+	} finally {
+	    Principal.closeConnection(con, stmt);
+	}
+    }
     public boolean excluir(Imovel imovel){
 	// query para inserir um novo imóvel
 	String query = "DELETE * FROM apartamento WHERE imovel_id = ?";

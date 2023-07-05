@@ -27,7 +27,7 @@ public class ImovelDAO {
 
     public boolean salvar(Imovel imovel){
 	// query para inserir um novo imóvel
-	String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao) VALUES (?, ?, ?, ?, ?, ?)";
+	String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	PreparedStatement stmt = null;
 
 	try {
@@ -38,7 +38,7 @@ public class ImovelDAO {
 	    stmt.setString(4, imovel.getCidade());
 	    stmt.setDouble(5, imovel.getValorDaCompra());
 	    stmt.setDate(6,  new java.sql.Date(imovel.getDataDaAquisicao().getTime()));
-	    
+	    stmt.setBoolean(7,  imovel.isDisponivel());
 	    // salva os dados no bd
 	    stmt.executeUpdate();
 	    return true;
@@ -71,6 +71,7 @@ public class ImovelDAO {
 		imovel.setCidade(rs.getString("cidade"));
 		imovel.setValorDaCompra(rs.getDouble("valorDaCompra"));
 		imovel.setDataDaAquisicao(rs.getDate("dataDaAquisicao"));
+		imovel.setDisponivel(rs.getBoolean("disponivel"));
 	    }
 
 	} catch (SQLException ex) {
@@ -85,7 +86,7 @@ public class ImovelDAO {
 
     public boolean editar(Imovel imovel){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?  WHERE id = ?";
+	String query = "UPDATE imovel SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ? WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
@@ -96,6 +97,7 @@ public class ImovelDAO {
 	    stmt.setString(4, imovel.getCidade());
 	    stmt.setDouble(5, imovel.getValorDaCompra());
 	    stmt.setDate(6,  new java.sql.Date(imovel.getDataDaAquisicao().getTime()));
+	    stmt.setBoolean(5, imovel.isDisponivel());
 	    stmt.setInt(7, imovel.getId());
 	    
 	    // salva os dados no bd

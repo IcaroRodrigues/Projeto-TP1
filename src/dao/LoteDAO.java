@@ -22,23 +22,23 @@ public class LoteDAO {
 	con = Principal.getConnection();
     }
     
-    public boolean salvar(Lote lote, int imovel_id){
+    public boolean salvar(Lote lote){
 	// query para inserir um novo imóvel
-	String query = "INSERT INTO lote (imovel_id, numeroDoLote, areaDoLote, vendido) VALUES (?, ?, ?, ?, ?)";
+	String query = "INSERT INTO lote (imovel_id, numeroDoLote, areaDoLote) VALUES (?, ?, ?)";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt = con.prepareStatement(query);
-	    stmt.setInt(2, imovel_id);
-	    stmt.setInt(3, lote.getNumeroDoLote());
-	    stmt.setDouble(4, lote.getAreaDoLote());
-	    stmt.setBoolean(5, lote.isDisponivel());
+	    stmt.setInt(1, lote.getId());
+	    stmt.setInt(2, lote.getNumeroDoLote());
+	    stmt.setDouble(3, lote.getAreaDoLote());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();
 	    return true;
 	} catch (SQLException ex) {
 	    System.out.println("erro: "+ex);
+	    System.out.println("é aq que ta dando erro");
 	    return false;
 	} finally {
 	    Principal.closeConnection(con, stmt);
@@ -47,15 +47,14 @@ public class LoteDAO {
 
     public boolean editar(Lote lote){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET numeroDoLote = ?, areaDoLote = ?, vendido = ?  WHERE id = ?";
+	String query = "UPDATE imovel SET numeroDoLote = ?, areaDoLote = ?  WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt = con.prepareStatement(query);
 	    stmt.setInt(1, lote.getNumeroDoLote());
 	    stmt.setDouble(2, lote.getAreaDoLote());
-	    stmt.setBoolean(3, lote.isDisponivel());
-	    stmt.setInt(7, lote.getId());
+	    stmt.setInt(3, lote.getId());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();

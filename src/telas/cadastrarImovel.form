@@ -391,34 +391,23 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="numeroApto" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="numeroAndar" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="quantComodos" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="quantPavimentos" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="valorCondominio" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="idadeImovel" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtQuantPavimentosApto" alignment="0" pref="150" max="32767" attributes="0"/>
-                                      <Component id="txtValorCondominioApto" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtIdadeImovelApto" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtQuantComodosApto" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="txtNumApto" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="txtNumAndarApto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              </Group>
+                          <Component id="numeroApto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="numeroAndar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="quantComodos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="quantPavimentos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="valorCondominio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="idadeImovel" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtQuantPavimentosApto" alignment="0" pref="150" max="32767" attributes="0"/>
+                              <Component id="txtValorCondominioApto" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtIdadeImovelApto" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel12" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="vendaApto" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="aluguelApto" min="-2" pref="87" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="txtQuantComodosApto" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="txtNumApto" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="txtNumAndarApto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="56" max="32767" attributes="0"/>
                   </Group>
@@ -457,13 +446,7 @@
                           <Component id="txtIdadeImovelApto" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="idadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="vendaApto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="aluguelApto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -517,24 +500,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdadeImovelApto">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Disponibilidade:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="vendaApto">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="venda"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vendaAptoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="aluguelApto">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="aluguel"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="PainelCasa">
@@ -546,10 +511,6 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel8" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel7" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
@@ -571,23 +532,14 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtAreaConstruidaCasa" pref="143" max="32767" attributes="0"/>
+                                          <Component id="txtAreaLoteDaCasa" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtAreaConstruidaCasa" pref="143" max="32767" attributes="0"/>
-                                                  <Component id="txtAreaLoteDaCasa" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel9" min="-2" pref="37" max="-2" attributes="0"/>
-                                                  <Component id="jLabel10" min="-2" pref="43" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="vendaCasa" min="-2" pref="87" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="aluguelCasa" min="-2" pref="87" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel9" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" min="-2" pref="43" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
@@ -648,13 +600,7 @@
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtIdadeCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="vendaCasa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="aluguelCasa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -690,11 +636,6 @@
                 <Property name="text" type="java.lang.String" value="Idade do Im&#xf3;vel:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Disponibilidade:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtAreaLoteDaCasa">
             </Component>
             <Component class="javax.swing.JTextField" name="txtAreaConstruidaCasa">
@@ -710,19 +651,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtQuantPavimentosCasa">
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="vendaCasa">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="venda"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vendaCasaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="aluguelCasa">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="aluguel"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
