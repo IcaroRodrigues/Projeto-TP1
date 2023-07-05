@@ -32,7 +32,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Component id="pnlDadosCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,9 +43,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="btnSalvarCliente" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="btnLimparCliente" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="btnVoltarTelaPrincipal" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace pref="146" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
@@ -68,31 +77,27 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lblTelefoneCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="lblDataDeNascimentoCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblTelefoneCliente1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTelefoneCliente" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtDataDeNascimentoCliente" max="32767" attributes="0"/>
                               <Component id="txtTelefoneCliente" pref="212" max="32767" attributes="0"/>
+                              <Component id="txtDataDeNascimentoCliente" max="32767" attributes="0"/>
+                              <Component id="txtOcupacaoCliente" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="btnSalvarCliente" min="-2" pref="70" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="btnLimparCliente" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="btnVoltarTelaPrincipal" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace pref="141" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -121,10 +126,15 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelefoneCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelefoneCliente1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTelefoneCliente" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtOcupacaoCliente" alignment="3" pref="29" max="32767" attributes="0"/>
+                      <Component id="lblTelefoneCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnLimparCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnVoltarTelaPrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -157,7 +167,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTelefoneCliente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Telefone:"/>
+            <Property name="text" type="java.lang.String" value="Ocupa&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeCliente">
@@ -203,6 +213,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataDeNascimentoClienteActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtRgCliente">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="#.###.###" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtTelefoneCliente">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
@@ -210,12 +227,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtRgCliente">
+        <Component class="javax.swing.JLabel" name="lblTelefoneCliente1">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="#.###.###" subtype="-1" type="5"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtOcupacaoCliente">
         </Component>
       </SubComponents>
     </Container>
