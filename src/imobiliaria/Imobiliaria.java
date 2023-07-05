@@ -5,7 +5,6 @@
 package imobiliaria;
 
 
-import java.util.Date;
 /**
  *
  * @author dyesi

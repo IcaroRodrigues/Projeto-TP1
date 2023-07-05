@@ -8,17 +8,11 @@ import Classes.Imovel;
 import Classes.Lote;
 import Classes.Casa;
 import Classes.Apartamento;
-import java.util.ArrayList;
-import java.sql.Connection;
+import dao.ImovelDAO;
+import java.awt.Color;
+import javax.swing.UIManager;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -679,7 +673,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    boolean vendido = false;
 
 	    // Criar um objeto Lote com os valores obtidos
-	   Lote lote = new Lote(numeroLote, areaDoLote, vendido, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Lote lote = new Lote(numeroLote, areaDoLote, vendido, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 
 	} else if(radioTipoCasa.isSelected()){
 	    double tamanhoDoLote = Double.parseDouble(txtAreaLoteDaCasa.getText());
@@ -693,7 +687,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    boolean disponivel = true;
 
 	    // Cria um objeto Casa com base nos valores dos campos
-	   Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, aluga, vende, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 
 	} else if(radioTipoApartamento.isSelected()){
 	    // Obtém os valores dos campos da interface gráfica
@@ -708,52 +702,25 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    boolean disponivel = true;
 
 	    // Cria um objeto Apartamento com base nos valores dos campos
-	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 	}
 
-	// salva no banco de dados
-	try {
-	    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Imobiliaria", "root", "");
-	    System.out.println("Conexão bem-sucedida!");
-	    SimpleDateFormat formatoBD = new SimpleDateFormat("MM-dd-yyyy");
-	    String[] partes = dataAquisicao.split("/");
-	    String dia = partes[0];
-	    String mes = partes[1];
-	    String ano = partes[2];
+	// chamar aqui pra salvar no bd
+	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	ImovelDAO dao = new ImovelDAO();
+	if (dao.salvar(imovel)){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL
+	    btnLimparActionPerformed(evt);
+	    new telaPrincipal().setVisible(true);
+	    this.setVisible(false);
 
-	    // Montar a nova string no formato mm-dd-aaaa
-	    String novaDataStr  = mes + "-" + dia + "-" + ano;
+	    UIManager.put("OptionPane.background", Color.GREEN);
+	    UIManager.put("OptionPane.messageForeground", Color.GREEN);
+	    // Exibir o JOptionPane com mensagem
+	    JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
-	    Date novaData = null;
-	    try {
-		java.util.Date utilDate = formatoBD.parse(novaDataStr);
-		novaData = new Date(utilDate.getTime());
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-
-	    // Consulta SQL para inserir um novo imóvel
-	    // String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao) VALUES ("+rua+", "+bairro+", "+cep+", "+cidade+", "+valorDaCompra+", "+dataDaAquisicao+")";
-	    String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao) VALUES (?, ?, ?, ?, ?, ?)";
-	
-	    PreparedStatement preparedStatement = connection.prepareStatement(query);
-	    preparedStatement.setString(1, rua);
-	    preparedStatement.setString(2, bairro);
-	    preparedStatement.setString(3, cep);
-	    preparedStatement.setString(4, cidade);
-	    preparedStatement.setDouble(5, valorDaCompra);
-	    preparedStatement.setDate(6,  new java.sql.Date(novaData.getTime()));
-
-
-	    // salva os dados no bd
-	    preparedStatement.executeUpdate();
-
-	    connection.close();
-	} catch (SQLException e) {
-	    e.printStackTrace();
+	    // Fechar o JOptionPane
+	    JOptionPane.getRootFrame().dispose();
 	}
-	
-	btnLimparActionPerformed(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

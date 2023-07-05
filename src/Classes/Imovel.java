@@ -23,8 +23,7 @@ public class Imovel {
     public Imovel() {}
 
     /** Construtor que inicializa todas as propriedades da classe Apartamento. */
-    public Imovel(int id, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
-        this.id = id;
+    public Imovel( String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
         this.rua = rua;
         this.bairro = bairro;
         this.cep = cep;
