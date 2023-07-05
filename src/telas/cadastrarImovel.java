@@ -625,7 +625,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    // Criar um objeto Lote com os valores obtidos
 	    Lote lote = new Lote(numeroLote, areaDoLote, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
 	    LoteDAO loteDao = new LoteDAO();
-	    if (loteDao.salvar(lote, 1)){ 
+	    if (loteDao.salvar(lote)){ 
 		salvoutipo = true;
 	    }
 
