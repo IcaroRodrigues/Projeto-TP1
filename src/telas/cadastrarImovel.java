@@ -647,6 +647,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
         String cidade = txtCidadeImovel.getText();
         double valorDaCompra = Double.parseDouble(txtValorImovel.getText());
         String dataAquisicao = txtDataAquisicaoImovel.getText();
+        boolean imovelDisponivel = true;
         
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date dataDaAquisicao = null;
@@ -657,7 +658,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
         }
 	
 	// inicializa o imovel
-	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao,imovelDisponivel);
 	ImovelDAO dao = new ImovelDAO();
 
 	// TEM QUE FAZER TRATAMENTO DE EXCESSÃO AQUI
