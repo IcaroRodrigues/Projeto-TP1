@@ -32,7 +32,8 @@ public class ClienteDAO {
 	// query para inserir um novo imóvel
 	String query = "INSERT INTO cliente (nome, rg, cpf, dataNascimento, telefone, ocupacao) VALUES (?, ?, ?, ?, ?, ?)";
 	PreparedStatement stmt = null;
-	
+	 
+
 	try {
 	    stmt = con.prepareStatement(query);
 	    stmt.setString(1, cliente.getNome());

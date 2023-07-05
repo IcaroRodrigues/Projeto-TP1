@@ -395,12 +395,14 @@
                           <Component id="numeroAndar" alignment="0" max="32767" attributes="0"/>
                           <Component id="quantComodos" alignment="0" max="32767" attributes="0"/>
                           <Component id="quantPavimentos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="valorCondominio" alignment="0" max="32767" attributes="0"/>
                           <Component id="idadeImovel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtQuantPavimentosApto" alignment="0" pref="150" max="32767" attributes="0"/>
+                              <Component id="txtValorCondominioApto" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtIdadeImovelApto" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtQuantComodosApto" min="-2" pref="150" max="-2" attributes="0"/>
@@ -436,10 +438,15 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="idadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtIdadeImovelApto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtValorCondominioApto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="valorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="132" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtIdadeImovelApto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -465,6 +472,11 @@
                 <Property name="text" type="java.lang.String" value="Quant de Pavimentos:"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="valorCondominio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Valor do Condom&#xed;nio:"/>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JLabel" name="idadeImovel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Idade do Im&#xf3;vel:"/>
@@ -480,6 +492,11 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtQuantPavimentosApto">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtValorCondominioApto">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorCondominioAptoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdadeImovelApto">
             </Component>
