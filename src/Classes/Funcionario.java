@@ -20,8 +20,8 @@ public class Funcionario extends Pessoa {
     public Funcionario() {} 
     
     /** Construtor que inicializa todas as propriedades da classe Funcionario.*/
-    public Funcionario(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm) {
-        super(id, nome, rg, cpf, dataNascimento, telefone);
+    public Funcionario( String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm) {
+        super( nome, rg, cpf, dataNascimento, telefone);
         this.funcao     = funcao;
         this.salario    = salario;
         this.senha      = senha;

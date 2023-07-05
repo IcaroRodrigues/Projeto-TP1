@@ -17,8 +17,8 @@ public class Cliente extends Pessoa {
     public Cliente() {} 
 
     /** Construtor que inicializa todas as propriedades da classe Cliente.*/
-    public Cliente(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String ocupacao) {
-        super(id, nome, rg, cpf, dataNascimento, telefone);
+    public Cliente(String nome, String rg, String cpf, String dataNascimento, String telefone, String ocupacao) {
+        super(nome, rg, cpf, dataNascimento, telefone);
         this.ocupacao = ocupacao;
     }
     

@@ -282,7 +282,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
         String senhaCorretor_ = txtSenhaCorretor.getText();
         String creciCorretor_ = txtCreciCorretor.getText();
 
-        Corretor corretor = new Corretor(0, nomeCorretor_, rgCorretor_, cpfCorretor_, dataNascimentoCorretor_, telefoneCorretor_, "Corretor", salarioCorretor_, senhaCorretor_, false, creciCorretor_);
+        Corretor corretor = new Corretor( nomeCorretor_, rgCorretor_, cpfCorretor_, dataNascimentoCorretor_, telefoneCorretor_, "Corretor", salarioCorretor_, senhaCorretor_, false, creciCorretor_);
 
         JOptionPane.showMessageDialog(null, "Corretor cadastrado com Sucesso!", "Aviso!", JOptionPane.INFORMATION_MESSAGE);
 

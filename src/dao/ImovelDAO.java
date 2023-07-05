@@ -128,5 +128,27 @@ public class ImovelDAO {
 	    Principal.closeConnection(con, stmt);
 	}
     }
-
+    public int lastInsertId(){
+	// query para buscar o ultimo id inserido
+	String query = "SELECT id FROM imovel ORDER BY id DESC LIMIT 1";
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	int lastId = 0;
+	
+	try {
+	    stmt = con.prepareStatement(query);
+	    rs = stmt.executeQuery();
+	    if (rs.next()) {  // Verifica se há um próximo registro no ResultSet
+		lastId = rs.getInt("id");  // Obtém o valor do ID
+		return lastId;
+	    }
+	    
+	} catch (SQLException ex) {
+	    System.out.println("Erro: " + ex);
+	    ex.printStackTrace();
+	} finally {
+	    Principal.closeConnection(con, stmt, rs);
+	}
+	return 0;
+	}
 }

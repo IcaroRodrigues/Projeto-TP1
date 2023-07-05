@@ -28,7 +28,7 @@ public class Transacao extends javax.swing.JFrame {
     public Transacao() {
         initComponents();
 
-        this.corretor = new Corretor(1, "Icaro Rodrigues", "9999999", "99999999999", "04/04/1997", "99999999999", "Programador", 3500, "1234", false, "12345");
+        this.corretor = new Corretor( "Icaro Rodrigues", "9999999", "99999999999", "04/04/1997", "99999999999", "Programador", 3500, "1234", false, "12345");
         
         corretorNomeInput.setText(corretor.getNome());
         corretorCpfInput.setText(corretor.getCpf());

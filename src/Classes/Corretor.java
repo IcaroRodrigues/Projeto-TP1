@@ -17,8 +17,8 @@ public class Corretor extends Funcionario{
     public Corretor() {}
 
     /** Construtor que inicializa todas as propriedades da classe Corretor.*/
-    public Corretor(int id, String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm, String creci) {
-        super(id, nome, rg, cpf, dataNascimento, telefone, "Corretor", salario, senha, false);
+    public Corretor( String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm, String creci) {
+        super( nome, rg, cpf, dataNascimento, telefone, "Corretor", salario, senha, false);
         this.creci = creci;
     }
     

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Classes.Cliente;
+import dao.ClienteDAO;
 
 /**
  * Tela de cadastro de cliente.
@@ -129,10 +130,10 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(txtOcupacaoCliente))
                         .addGroup(pnlDadosClienteLayout.createSequentialGroup()
-                            .addComponent(btnLimparCliente)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSalvarCliente)
-                            .addGap(27, 27, 27)
+                            .addGap(30, 30, 30)
+                            .addComponent(btnLimparCliente)
+                            .addGap(26, 26, 26)
                             .addComponent(btnCancelarCliente))))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -165,9 +166,9 @@ public class CadastroCliente extends javax.swing.JFrame {
                     .addComponent(txtOcupacaoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvarCliente)
                     .addComponent(btnLimparCliente)
-                    .addComponent(btnCancelarCliente))
+                    .addComponent(btnCancelarCliente)
+                    .addComponent(btnSalvarCliente))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -234,10 +235,15 @@ public class CadastroCliente extends javax.swing.JFrame {
             String telefoneCliente_ = txtTelefoneCliente.getText();
             String ocupacaoCliente_ = txtOcupacaoCliente.getText();
 
-            Cliente cliente = new Cliente(0, nomeCliente_, rgCliente_, cpfCliente_, dataNascimentoCliente_, telefoneCliente_, ocupacaoCliente_);
-
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!", "Aviso!", JOptionPane.INFORMATION_MESSAGE);
-
+            Cliente cliente = new Cliente(nomeCliente_, rgCliente_, cpfCliente_, dataNascimentoCliente_, telefoneCliente_, ocupacaoCliente_);
+	    ClienteDAO clienteDAO = new ClienteDAO();
+	    if (clienteDAO.salvar(cliente)){ 
+		JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!", "Aviso!", JOptionPane.INFORMATION_MESSAGE);
+		btnLimparClienteActionPerformed(evt);
+		new telaPrincipal().setVisible(true);
+		this.setVisible(false);
+	    }
+            
             listaCliente.add(cliente);
         }
     }//GEN-LAST:event_btnSalvarClienteActionPerformed

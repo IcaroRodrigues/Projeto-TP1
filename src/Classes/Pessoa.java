@@ -18,8 +18,7 @@ public abstract class Pessoa {
     public Pessoa() {} 
     
     /** Construtor que inicializa todas as propriedades da classe Pessoa.*/
-    public Pessoa(int id, String nome, String rg, String cpf, String dataNascimento, String telefone) { 
-        this.id             = id;
+    public Pessoa( String nome, String rg, String cpf, String dataNascimento, String telefone) { 
         this.nome           = nome;
         this.rg             = rg;
         this.cpf            = cpf;

@@ -22,14 +22,14 @@ public class LoteDAO {
 	con = Principal.getConnection();
     }
     
-    public boolean salvar(Lote lote){
+    public boolean salvar(Lote lote, int imovel_id){
 	// query para inserir um novo imóvel
 	String query = "INSERT INTO lote (imovel_id, numeroDoLote, areaDoLote) VALUES (?, ?, ?)";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt = con.prepareStatement(query);
-	    stmt.setInt(1, lote.getId());
+	    stmt.setInt(1, imovel_id);
 	    stmt.setInt(2, lote.getNumeroDoLote());
 	    stmt.setDouble(3, lote.getAreaDoLote());
 	    

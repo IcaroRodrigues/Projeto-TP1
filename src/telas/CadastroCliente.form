@@ -82,10 +82,10 @@
                               <Component id="txtOcupacaoCliente" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnLimparCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnSalvarCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnLimparCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="btnCancelarCliente" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -129,9 +129,9 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnSalvarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLimparCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCancelarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalvarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
