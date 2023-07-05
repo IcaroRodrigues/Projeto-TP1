@@ -9,6 +9,7 @@ import Classes.Lote;
 import Classes.Casa;
 import Classes.Apartamento;
 import java.util.ArrayList;
+import java.sql.Connection;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +17,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -660,7 +663,12 @@ public class CadastrarImovel extends javax.swing.JFrame {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
+	
+	/* Consulta SQL para obter o último ID inserido
+	String query_last_imovel = "SELECT LAST_INSERT_ID() AS last_id FROM Imovel";
+	Statement statement = connection.createStatement();
+	ResultSet resultSet = statement.executeQuery(query_last_imovel);
+	*/
 	int id = 1;
 	// TEM QUE FAZER TRATAMENTO DE EXCESSÃO AQUI
 
@@ -669,7 +677,6 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int numeroLote = Integer.parseInt(txtNumeroLote.getText());
 	    double areaDoLote = Double.parseDouble(txtAreaLote.getText());
 	    boolean vendido = false;
-
 
 	    // Criar um objeto Lote com os valores obtidos
 	   Lote lote = new Lote(numeroLote, areaDoLote, vendido, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
