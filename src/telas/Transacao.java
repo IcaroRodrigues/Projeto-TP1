@@ -92,7 +92,7 @@ public class Transacao extends javax.swing.JFrame {
 
         cpfCorretor.setText("CPF:");
 
-        Creci.setText("Creci:");
+        Creci.setText("CRECI:");
 
         telefoneCorretor.setText("Telefone:");
 
@@ -136,29 +136,29 @@ public class Transacao extends javax.swing.JFrame {
         pnlDadosCorretorLayout.setHorizontalGroup(
             pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomeCorretor)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosCorretorLayout.createSequentialGroup()
                 .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpfCorretor)
-                                    .addComponent(Creci))
-                                .addGap(19, 19, 19))
-                            .addComponent(telefoneCorretor))
+                        .addGap(6, 6, 6)
                         .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosCorretorLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(corretorTelefoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(corretorCreciInput, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(corretorCpfInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                        .addComponent(nomeCorretor)
-                        .addGap(18, 18, 18)
-                        .addComponent(corretorNomeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Creci)
+                            .addComponent(telefoneCorretor))
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cpfCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(corretorCreciInput, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(corretorNomeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(corretorTelefoneInput, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                            .addComponent(corretorCpfInput))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDadosCorretorLayout.setVerticalGroup(
             pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

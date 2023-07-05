@@ -94,6 +94,7 @@ public class Imoveis extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarImovelActionPerformed
@@ -102,7 +103,7 @@ public class Imoveis extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarImovelActionPerformed
 
     private void btnNovoImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoImovelActionPerformed
-        new CadastrarImovel().setVisible(true);
+        new cadastrarImovel().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNovoImovelActionPerformed
 

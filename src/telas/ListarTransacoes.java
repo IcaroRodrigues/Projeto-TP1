@@ -47,7 +47,7 @@ public class ListarTransacoes extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 820));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Mono", 0, 36)); // NOI18N
         jLabel2.setText("Listagem de operações realizadas");
 
         jScrollPane3.setBorder(null);
@@ -70,7 +70,7 @@ public class ListarTransacoes extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Mono", 0, 36)); // NOI18N
         jLabel3.setText("Valor total das transações:");
 
         valorTotalTransacoes.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
@@ -85,11 +85,11 @@ public class ListarTransacoes extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(valorTotalTransacoes)
-                .addContainerGap(745, Short.MAX_VALUE))
+                .addContainerGap(574, Short.MAX_VALUE))
             .addComponent(jScrollPane3)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(0, 655, Short.MAX_VALUE))
+                .addGap(0, 496, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +101,7 @@ public class ListarTransacoes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(valorTotalTransacoes))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         btnMenu.setText("Menu");
