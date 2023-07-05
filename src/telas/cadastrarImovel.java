@@ -4,7 +4,6 @@
  */
 package telas;
 
-import java.util.Date;
 import Classes.Imovel;
 import Classes.Lote;
 import Classes.Casa;
@@ -13,6 +12,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 
 /**
@@ -90,6 +95,9 @@ public class CadastrarImovel extends javax.swing.JFrame {
         txtQuantPavimentosApto = new javax.swing.JTextField();
         txtValorCondominioApto = new javax.swing.JTextField();
         txtIdadeImovelApto = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        vendaApto = new javax.swing.JCheckBox();
+        aluguelApto = new javax.swing.JCheckBox();
         PainelCasa = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -103,8 +111,8 @@ public class CadastrarImovel extends javax.swing.JFrame {
         txtNumeroCasa = new javax.swing.JTextField();
         txtQuantComodosCasa = new javax.swing.JTextField();
         txtQuantPavimentosCasa = new javax.swing.JTextField();
-        venda = new javax.swing.JCheckBox();
-        aluguel = new javax.swing.JCheckBox();
+        vendaCasa = new javax.swing.JCheckBox();
+        aluguelCasa = new javax.swing.JCheckBox();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtIdadeCasa = new javax.swing.JTextField();
@@ -263,6 +271,17 @@ public class CadastrarImovel extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("Disponibilidade:");
+
+        vendaApto.setText("venda");
+        vendaApto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendaAptoActionPerformed(evt);
+            }
+        });
+
+        aluguelApto.setText("aluguel");
+
         javax.swing.GroupLayout PainelApartamentoLayout = new javax.swing.GroupLayout(PainelApartamento);
         PainelApartamento.setLayout(PainelApartamentoLayout);
         PainelApartamentoLayout.setHorizontalGroup(
@@ -270,50 +289,64 @@ public class CadastrarImovel extends javax.swing.JFrame {
             .addGroup(PainelApartamentoLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(numeroApto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(numeroAndar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(quantComodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(quantPavimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(valorCondominio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(idadeImovel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNumAndarApto, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(txtNumApto)
-                    .addComponent(txtQuantComodosApto)
-                    .addComponent(txtQuantPavimentosApto)
-                    .addComponent(txtValorCondominioApto)
-                    .addComponent(txtIdadeImovelApto))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(PainelApartamentoLayout.createSequentialGroup()
+                        .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(numeroApto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(numeroAndar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quantComodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quantPavimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(valorCondominio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idadeImovel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtQuantPavimentosApto, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(txtValorCondominioApto)
+                                .addComponent(txtIdadeImovelApto))
+                            .addComponent(txtQuantComodosApto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumApto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumAndarApto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PainelApartamentoLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26)
+                        .addComponent(vendaApto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(aluguelApto, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         PainelApartamentoLayout.setVerticalGroup(
             PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelApartamentoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(15, 15, 15)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numeroAndar)
-                    .addComponent(txtNumAndarApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(txtNumAndarApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroAndar))
+                .addGap(18, 18, 18)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroApto)
                     .addComponent(txtNumApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quantComodos)
-                    .addComponent(txtQuantComodosApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(txtQuantComodosApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantComodos))
+                .addGap(18, 18, 18)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantPavimentos)
                     .addComponent(txtQuantPavimentosApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valorCondominio)
-                    .addComponent(txtValorCondominioApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(txtValorCondominioApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorCondominio))
+                .addGap(18, 18, 18)
                 .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idadeImovel)
-                    .addComponent(txtIdadeImovelApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                    .addComponent(txtIdadeImovelApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idadeImovel))
+                .addGap(18, 18, 18)
+                .addGroup(PainelApartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(vendaApto)
+                    .addComponent(aluguelApto))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Área do Lote:");
@@ -342,14 +375,14 @@ public class CadastrarImovel extends javax.swing.JFrame {
             }
         });
 
-        venda.setText("venda");
-        venda.addActionListener(new java.awt.event.ActionListener() {
+        vendaCasa.setText("venda");
+        vendaCasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vendaActionPerformed(evt);
+                vendaCasaActionPerformed(evt);
             }
         });
 
-        aluguel.setText("aluguel");
+        aluguelCasa.setText("aluguel");
 
         jLabel9.setText("m²");
 
@@ -392,9 +425,9 @@ public class CadastrarImovel extends javax.swing.JFrame {
                                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(PainelCasaLayout.createSequentialGroup()
-                                        .addComponent(venda, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(vendaCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(aluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(aluguelCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(37, 37, 37))
                             .addGroup(PainelCasaLayout.createSequentialGroup()
                                 .addGap(38, 38, 38)
@@ -441,8 +474,8 @@ public class CadastrarImovel extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PainelCasaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(venda)
-                    .addComponent(aluguel))
+                    .addComponent(vendaCasa)
+                    .addComponent(aluguelCasa))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -560,7 +593,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(212, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(143, 143, 143))
         );
@@ -569,7 +602,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -618,7 +651,17 @@ public class CadastrarImovel extends javax.swing.JFrame {
         String cep = txtCepImovel.getText();
         String cidade = txtCidadeImovel.getText();
         double valorDaCompra = Double.parseDouble(txtValorImovel.getText());
-        //Date dataDaAquisicao = Date txtDataAquisicaoImovel.getText();
+        String dataAquisicao = txtDataAquisicaoImovel.getText();
+	
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataDaAquisicao = null;
+        try {
+            dataDaAquisicao = formato.parse(dataAquisicao);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+	int id = 1;
 	// TEM QUE FAZER TRATAMENTO DE EXCESSÃO AQUI
 
 	if (radioTipoLote.isSelected()) {
@@ -626,10 +669,10 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int numeroLote = Integer.parseInt(txtNumeroLote.getText());
 	    double areaDoLote = Double.parseDouble(txtAreaLote.getText());
 	    boolean vendido = false;
-	    int id = 0;
+
 
 	    // Criar um objeto Lote com os valores obtidos
-	   // Lote lote = new Lote(numeroLote, areaDoLote, vendido, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Lote lote = new Lote(numeroLote, areaDoLote, vendido, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 
 	} else if(radioTipoCasa.isSelected()){
 	    double tamanhoDoLote = Double.parseDouble(txtAreaLoteDaCasa.getText());
@@ -638,13 +681,12 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int qntDeComodos = Integer.parseInt(txtQuantComodosCasa.getText());
 	    int qntDePavimentos = Integer.parseInt(txtQuantPavimentosCasa.getText());
 	    int idadeDoImovel = Integer.parseInt(txtIdadeCasa.getText());
-	    boolean aluga = aluguel.isSelected();
-	    boolean vende = venda.isSelected();
+	    boolean aluga = aluguelCasa.isSelected();
+	    boolean vende = vendaCasa.isSelected();
 	    boolean disponivel = true;
-	    int id = 0;
 
 	    // Cria um objeto Casa com base nos valores dos campos
-	   // Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 
 	} else if(radioTipoApartamento.isSelected()){
 	    // Obtém os valores dos campos da interface gráfica
@@ -654,15 +696,55 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int qntDePavimentos = Integer.parseInt(txtQuantPavimentosApto.getText());
 	    double valorCondominio = Double.parseDouble(txtValorCondominioApto.getText());
 	    int idadeDoImovel = Integer.parseInt(txtIdadeImovelApto.getText());
-	    boolean aluga = aluguel.isSelected();
-	    boolean vende = venda.isSelected();
+	    boolean aluga = aluguelCasa.isSelected();
+	    boolean vende = vendaCasa.isSelected();
 	    boolean disponivel = true;
-	    int id = 0;
 
 	    // Cria um objeto Apartamento com base nos valores dos campos
-	   // Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, id, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 	}
-	//SALVAR NO BD
+
+	// salva no banco de dados
+	try {
+	    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Imobiliaria", "root", "");
+	    System.out.println("Conexão bem-sucedida!");
+	    SimpleDateFormat formatoBD = new SimpleDateFormat("MM-dd-yyyy");
+	    String[] partes = dataAquisicao.split("/");
+	    String dia = partes[0];
+	    String mes = partes[1];
+	    String ano = partes[2];
+
+	    // Montar a nova string no formato mm-dd-aaaa
+	    String novaDataStr  = mes + "-" + dia + "-" + ano;
+
+	    Date novaData = null;
+	    try {
+		java.util.Date utilDate = formatoBD.parse(novaDataStr);
+		novaData = new Date(utilDate.getTime());
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+
+	    // Consulta SQL para inserir um novo imóvel
+	    // String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao) VALUES ("+rua+", "+bairro+", "+cep+", "+cidade+", "+valorDaCompra+", "+dataDaAquisicao+")";
+	    String query = "INSERT INTO Imovel (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao) VALUES (?, ?, ?, ?, ?, ?)";
+	
+	    PreparedStatement preparedStatement = connection.prepareStatement(query);
+	    preparedStatement.setString(1, rua);
+	    preparedStatement.setString(2, bairro);
+	    preparedStatement.setString(3, cep);
+	    preparedStatement.setString(4, cidade);
+	    preparedStatement.setDouble(5, valorDaCompra);
+	    preparedStatement.setDate(6,  new java.sql.Date(novaData.getTime()));
+
+
+	    // salva os dados no bd
+	    preparedStatement.executeUpdate();
+
+	    connection.close();
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
 	
 	btnLimparActionPerformed(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -702,23 +784,24 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	txtQuantPavimentosCasa.setText("");
 	txtQuantComodosCasa.setText("");
 	txtIdadeCasa.setText("");
-	venda.setSelected(false);
-	aluguel.setSelected(false);
+	vendaCasa.setSelected(false);
+	aluguelCasa.setSelected(false);
 
 	// painel Apartamento
 	txtNumApto.setText("");
 	txtNumAndarApto.setText("");
-	txtNumeroLote.setText("");
+	txtQuantComodosApto.setText("");
+	txtQuantPavimentosApto.setText("");
+	txtValorCondominioApto.setText("");
+	txtIdadeImovelApto.setText("");
+	vendaApto.setSelected(false);
+	aluguelApto.setSelected(false);
 	
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void txtQuantComodosAptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantComodosAptoActionPerformed
+    private void vendaCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaCasaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtQuantComodosAptoActionPerformed
-
-    private void vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vendaActionPerformed
+    }//GEN-LAST:event_vendaCasaActionPerformed
 
     private void txtQuantComodosCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantComodosCasaActionPerformed
         // TODO add your handling code here:
@@ -728,13 +811,21 @@ public class CadastrarImovel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAreaConstruidaCasaActionPerformed
 
+    private void txtValorImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorImovelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorImovelActionPerformed
+
+    private void vendaAptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaAptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vendaAptoActionPerformed
+
     private void txtValorCondominioAptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorCondominioAptoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorCondominioAptoActionPerformed
 
-    private void txtValorImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorImovelActionPerformed
+    private void txtQuantComodosAptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantComodosAptoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorImovelActionPerformed
+    }//GEN-LAST:event_txtQuantComodosAptoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -776,7 +867,8 @@ public class CadastrarImovel extends javax.swing.JFrame {
     private javax.swing.JPanel PainelApartamento;
     private javax.swing.JPanel PainelCasa;
     private javax.swing.JPanel PainelLote;
-    private javax.swing.JCheckBox aluguel;
+    private javax.swing.JCheckBox aluguelApto;
+    private javax.swing.JCheckBox aluguelCasa;
     private javax.swing.JLabel areaLote;
     private javax.swing.JLabel bairro;
     private javax.swing.ButtonGroup btnGroupTipoImovel;
@@ -790,6 +882,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -832,6 +925,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
     private javax.swing.JTextField txtValorImovel;
     private javax.swing.JLabel valorCompra;
     private javax.swing.JLabel valorCondominio;
-    private javax.swing.JCheckBox venda;
+    private javax.swing.JCheckBox vendaApto;
+    private javax.swing.JCheckBox vendaCasa;
     // End of variables declaration//GEN-END:variables
 }
