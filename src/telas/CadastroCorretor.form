@@ -160,7 +160,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblNomeCorretor">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome Corretor:"/>
+            <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRgCorretor">

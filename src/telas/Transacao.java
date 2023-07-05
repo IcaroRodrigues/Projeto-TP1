@@ -6,7 +6,7 @@ package telas;
 
 import Classes.Casa;
 import Classes.Cliente;
-import Classes.Corretor;
+import Classes.Funcionario;
 import Classes.Imovel;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,17 +23,16 @@ public class Transacao extends javax.swing.JFrame {
      */
     private Cliente cliente = new Cliente();
     private Imovel imovel = new Casa();
-    private Corretor corretor = new Corretor();
+    private Funcionario funcionario = new Funcionario();
     
     public Transacao() {
         initComponents();
 
-        this.corretor = new Corretor( "Icaro Rodrigues", "9999999", "99999999999", "04/04/1997", "99999999999", "Programador", 3500, "1234", false, "12345");
+        this.funcionario = new Funcionario( "Icaro Rodrigues", "9999999", "99999999999", "04/04/1997", "99999999999", 3500, "1234", false);
         
-        corretorNomeInput.setText(corretor.getNome());
-        corretorCpfInput.setText(corretor.getCpf());
-        corretorTelefoneInput.setText(corretor.getTelefone());
-        corretorCreciInput.setText(corretor.getCreci());
+        corretorNomeInput.setText(funcionario.getNome());
+        corretorCpfInput.setText(funcionario.getCpf());
+        corretorTelefoneInput.setText(funcionario.getTelefone());
 
         DefaultTableModel tabelaImovel = (DefaultTableModel) this.tabelaImovel.getModel();
 

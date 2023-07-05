@@ -7,7 +7,7 @@ package telas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Classes.Corretor;
+import Classes.Funcionario;
 
 /**
  * Tela de cadastro de corretor.
@@ -17,7 +17,7 @@ import Classes.Corretor;
  */
 public class CadastroCorretor extends javax.swing.JFrame {
 
-    static ArrayList<Corretor> listaCorretor;
+    static ArrayList<Funcionario> listaFuncionario;
     
     /**
      * Creates new form CadastroCorretor
@@ -25,7 +25,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
     public CadastroCorretor() {
         initComponents();
         
-        listaCorretor = new ArrayList();
+        listaFuncionario = new ArrayList();
     }
 
     /**
@@ -60,7 +60,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblNomeCorretor.setText("Nome Corretor:");
+        lblNomeCorretor.setText("Nome:");
 
         lblRgCorretor.setText("RG Corretor:");
 
@@ -280,13 +280,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
         String telefoneCorretor_ = txtTelefoneCorretor.getText();
         float salarioCorretor_ = Float.parseFloat(txtSalarioCorretor.getText());
         String senhaCorretor_ = txtSenhaCorretor.getText();
-        String creciCorretor_ = txtCreciCorretor.getText();
 
-        Corretor corretor = new Corretor( nomeCorretor_, rgCorretor_, cpfCorretor_, dataNascimentoCorretor_, telefoneCorretor_, "Corretor", salarioCorretor_, senhaCorretor_, false, creciCorretor_);
+        Funcionario corretor = new Funcionario( nomeCorretor_, rgCorretor_, cpfCorretor_, dataNascimentoCorretor_, telefoneCorretor_, salarioCorretor_, senhaCorretor_, false);
 
         JOptionPane.showMessageDialog(null, "Corretor cadastrado com Sucesso!", "Aviso!", JOptionPane.INFORMATION_MESSAGE);
 
-        listaCorretor.add(corretor);
+        listaFuncionario.add(corretor);
         }
     }//GEN-LAST:event_btnSalvarCorretorActionPerformed
 

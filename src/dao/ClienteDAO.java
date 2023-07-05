@@ -64,7 +64,7 @@ public class ClienteDAO {
 
     public boolean editar(Cliente cliente){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, ocupacao = ? WHERE id = ?";
+	String query = "UPDATE cliente SET nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, ocupacao = ? WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {

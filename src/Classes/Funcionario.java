@@ -11,7 +11,6 @@ package Classes;
 */
 public class Funcionario extends Pessoa {
     // Declaração dos Atributos
-    protected String    funcao;
     protected float     salario;
     protected String    senha;
     protected boolean   adm;
@@ -20,21 +19,20 @@ public class Funcionario extends Pessoa {
     public Funcionario() {} 
     
     /** Construtor que inicializa todas as propriedades da classe Funcionario.*/
-    public Funcionario( String nome, String rg, String cpf, String dataNascimento, String telefone, String funcao, float salario, String senha, boolean adm) {
+    public Funcionario( String nome, String rg, String cpf, String dataNascimento, String telefone, float salario, String senha, boolean adm) {
         super( nome, rg, cpf, dataNascimento, telefone);
-        this.funcao     = funcao;
         this.salario    = salario;
         this.senha      = senha;
         this.adm        = adm;
     }
     
     // Declaração dos Métodos gets e sets
-    public String getFuncao() {
-        return funcao;
+    public boolean isAdm() {
+	return adm;
     }
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
+    public void setAdm(boolean adm) {
+	this.adm = adm;
     }
 
     public float getSalario() {
