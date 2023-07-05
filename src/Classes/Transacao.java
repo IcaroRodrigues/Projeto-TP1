@@ -4,35 +4,20 @@
  */
 package Classes;
 
-import java.util.Date;
-
 /**
  *
  * @author icaro
  */
 public class Transacao {
-    private Imovel imovel;
     private Cliente cliente;
-    private Corretor corretor;
-    private String tipoDeTransacao;
+    private Funcionario funcionario;
+    private Imovel imovel;
 
-    private Date dataDaOperacao;
-
-    public Transacao() {};
+    public Transacao(){};
     
-    public Transacao(Imovel imovel, Cliente cliente, Corretor corretor, String tipoDeTransacao, Date dataDaOperacao) {
-        this.imovel = imovel;
+    public Transacao(Cliente cliente, Funcionario funcionario, Imovel imovel) {
         this.cliente = cliente;
-        this.corretor = corretor;
-        this.tipoDeTransacao = tipoDeTransacao;
-        this.dataDaOperacao = dataDaOperacao;
-    }
-
-    public Imovel getImovel() {
-        return imovel;
-    }
-
-    public void setImovel(Imovel imovel) {
+        this.funcionario = funcionario;
         this.imovel = imovel;
     }
 
@@ -44,27 +29,19 @@ public class Transacao {
         this.cliente = cliente;
     }
 
-    public Corretor getCorretor() {
-        return corretor;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setCorretor(Corretor corretor) {
-        this.corretor = corretor;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
-    public String getTipoDeTransacao() {
-        return tipoDeTransacao;
+    public Imovel getImovel() {
+        return imovel;
     }
 
-    public void setTipoDeTransacao(String tipoDeTransacao) {
-        this.tipoDeTransacao = tipoDeTransacao;
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
-
-    public Date getDataDaOperacao() {
-        return dataDaOperacao;
-    }
-
-    public void setDataDaOperacao(Date dataDaOperacao) {
-        this.dataDaOperacao = dataDaOperacao;
-    }    
 }

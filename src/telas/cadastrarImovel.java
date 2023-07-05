@@ -647,7 +647,7 @@ public class CadastrarImovel extends javax.swing.JFrame {
         String cidade = txtCidadeImovel.getText();
         double valorDaCompra = Double.parseDouble(txtValorImovel.getText());
         String dataAquisicao = txtDataAquisicaoImovel.getText();
-	
+        
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date dataDaAquisicao = null;
         try {
@@ -666,10 +666,10 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    // Obter os valores específicos do Lote
 	    int numeroLote = Integer.parseInt(txtNumeroLote.getText());
 	    double areaDoLote = Double.parseDouble(txtAreaLote.getText());
-	    boolean vendido = false;
+	    boolean disponivel = false;
 
 	    // Criar um objeto Lote com os valores obtidos
-	   Lote lote = new Lote(numeroLote, areaDoLote, vendido, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Lote lote = new Lote(numeroLote, areaDoLote, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
 
 	} else if(radioTipoCasa.isSelected()){
 	    double tamanhoDoLote = Double.parseDouble(txtAreaLoteDaCasa.getText());
@@ -678,12 +678,10 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int qntDeComodos = Integer.parseInt(txtQuantComodosCasa.getText());
 	    int qntDePavimentos = Integer.parseInt(txtQuantPavimentosCasa.getText());
 	    int idadeDoImovel = Integer.parseInt(txtIdadeCasa.getText());
-	    boolean aluga = aluguelCasa.isSelected();
-	    boolean vende = vendaCasa.isSelected();
 	    boolean disponivel = true;
 
 	    // Cria um objeto Casa com base nos valores dos campos
-	   Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, aluga, vende, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Casa casa = new Casa(tamanhoDoLote, areaConstruida, numeroDaCasa, qntDeComodos, qntDePavimentos, idadeDoImovel, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 
 	} else if(radioTipoApartamento.isSelected()){
 	    // Obtém os valores dos campos da interface gráfica
@@ -693,12 +691,10 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	    int qntDePavimentos = Integer.parseInt(txtQuantPavimentosApto.getText());
 	    double valorCondominio = Double.parseDouble(txtValorCondominioApto.getText());
 	    int idadeDoImovel = Integer.parseInt(txtIdadeImovelApto.getText());
-	    boolean aluga = aluguelCasa.isSelected();
-	    boolean vende = vendaCasa.isSelected();
 	    boolean disponivel = true;
 
 	    // Cria um objeto Apartamento com base nos valores dos campos
-	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, idadeDoImovel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
 	}
 
 	if (dao.salvar(imovel)){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL

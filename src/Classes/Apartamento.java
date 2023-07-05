@@ -16,27 +16,23 @@ public class Apartamento extends Imovel{
     private int numeroDoApartamento;
     private int qntDeComodos;
     private int qntDePavimentos;
-    private double valorCondominio;
     private int idadeDoImovel;
-    private boolean aluga;
-    private boolean vende;
-    private boolean disponivel;
     
     /** Construtor vazio da classe Apartamento.*/
     public Apartamento() {}
 
     /** Construtor que inicializa todas as propriedades da classe Apartamento.*/
-    public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, double valorCondominio, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
-        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+    public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao, boolean disponivel) {
+        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
         this.numeroDoAndar = numeroDoAndar;
         this.numeroDoApartamento = numeroDoApartamento;
         this.qntDeComodos = qntDeComodos;
         this.qntDePavimentos = qntDePavimentos;
-        this.valorCondominio = valorCondominio;
         this.idadeDoImovel = idadeDoImovel;
-        this.aluga = aluga;
-        this.vende = vende;
-	this.disponivel = disponivel;
+    }
+
+    public Apartamento(int numeroDoAndar, int numeroDoApartamento, int qntDeComodos, int qntDePavimentos, double valorCondominio, int idadeDoImovel, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao, boolean disponivel) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     /** Metodo que calcula o valor do aluguél sendo 1% do valor de aquisição do imóvel multiplicado 
@@ -86,43 +82,11 @@ public class Apartamento extends Imovel{
         this.qntDePavimentos = qntDePavimentos;
     }
 
-    public double getValorCondominio() {
-        return valorCondominio;
-    }
-
-    public void setValorCondominio(double valorCondominio) {
-        this.valorCondominio = valorCondominio;
-    }
-
     public int getIdadeDoImovel() {
         return idadeDoImovel;
     }
 
     public void setIdadeDoImovel(int idadeDoImovel) {
         this.idadeDoImovel = idadeDoImovel;
-    }
-
-    public boolean isAluga() {
-	return aluga;
-    }
-
-    public void setAluga(boolean aluga) {
-	this.aluga = aluga;
-    }
-
-    public boolean isVende() {
-	return vende;
-    }
-
-    public void setVende(boolean vende) {
-	this.vende = vende;
-    }
-
-    public boolean isDisponivel() {
-	return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-	this.disponivel = disponivel;
     }
 }

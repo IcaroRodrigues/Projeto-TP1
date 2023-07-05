@@ -14,17 +14,15 @@ public class Lote extends Imovel{
     // Declaração dos Atributos
     private int numeroDoLote;
     private double areaDoLote;
-    private boolean vendido;
 
     /** Construtor vazio da classe Lote. */
     public Lote() {}
     
     /** Construtor que inicializa todas as propriedades da classe Lote.*/
-    public Lote(int numeroDoLote, double areaDoLote, boolean vendido, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
-        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+    public Lote(int numeroDoLote, double areaDoLote, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao, boolean disponivel) {
+        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
         this.numeroDoLote = numeroDoLote;
         this.areaDoLote = areaDoLote;
-        this.vendido = vendido;
     }
 
     // Declaração dos Métodos gets e sets
@@ -42,13 +40,5 @@ public class Lote extends Imovel{
 
     public void setAreaDoLote(double areaDoLote) {
         this.areaDoLote = areaDoLote;
-    }
-
-    public boolean isVendido() {
-        return vendido;
-    }
-
-    public void setVendido(boolean vendido) {
-        this.vendido = vendido;
     }
 }

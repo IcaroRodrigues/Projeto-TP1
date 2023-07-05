@@ -32,7 +32,7 @@ public class LoteDAO {
 	    stmt.setInt(2, imovel_id);
 	    stmt.setInt(3, lote.getNumeroDoLote());
 	    stmt.setDouble(4, lote.getAreaDoLote());
-	    stmt.setBoolean(5, lote.isVendido());
+	    stmt.setBoolean(5, lote.isDisponivel());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();
@@ -54,7 +54,7 @@ public class LoteDAO {
 	    stmt = con.prepareStatement(query);
 	    stmt.setInt(1, lote.getNumeroDoLote());
 	    stmt.setDouble(2, lote.getAreaDoLote());
-	    stmt.setBoolean(3, lote.isVendido());
+	    stmt.setBoolean(3, lote.isDisponivel());
 	    stmt.setInt(7, lote.getId());
 	    
 	    // salva os dados no bd

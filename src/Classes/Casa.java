@@ -18,24 +18,19 @@ public class Casa extends Imovel{
     private int qntDeComodos;
     private int qntDePavimentos;
     private int idadeDoImovel;
-    private boolean aluga;
-    private boolean vende;
-    private boolean disponivel;
 
     /** Construtor vazio da classe Casa.*/
     public Casa() {}
 
     /** Construtor que inicializa todas as propriedades da classe Casa.*/
-    public Casa(double tamanhoDoLote, double areaConstruida, int numeroDaCasa, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, boolean aluga, boolean vende, boolean disponivel, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
-        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+    public Casa(double tamanhoDoLote, double areaConstruida, int numeroDaCasa, int qntDeComodos, int qntDePavimentos, int idadeDoImovel, boolean disponivel, String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
+        super(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel);
         this.tamanhoDoLote = tamanhoDoLote;
         this.areaConstruida = areaConstruida;
         this.numeroDaCasa = numeroDaCasa;
         this.qntDeComodos = qntDeComodos;
         this.qntDePavimentos = qntDePavimentos;
         this.idadeDoImovel = idadeDoImovel;
-        this.aluga = aluga;
-        this.vende = vende;
 	this.disponivel = disponivel;
     }
     
@@ -118,29 +113,5 @@ public class Casa extends Imovel{
 
     public void setQntDePavimentos(int qntDePavimentos) {
         this.qntDePavimentos = qntDePavimentos;
-    }
-
-    public boolean isAluga() {
-	return aluga;
-    }
-
-    public void setAluga(boolean aluga) {
-	this.aluga = aluga;
-    }
-
-    public boolean isVende() {
-	return vende;
-    }
-
-    public void setVende(boolean vende) {
-	this.vende = vende;
-    }
-
-    public boolean isDisponivel() {
-	return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-	this.disponivel = disponivel;
     }
 }

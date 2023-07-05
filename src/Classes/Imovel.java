@@ -18,25 +18,27 @@ public class Imovel {
     protected String cidade;
     protected double valorDaCompra;
     protected Date dataDaAquisicao;
+    protected boolean disponivel;
     
     /** Construtor vazio da classe Imovel. */
     public Imovel() {}
 
     /** Construtor que inicializa todas as propriedades da classe Apartamento. */
-    public Imovel( String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao) {
+    public Imovel(String rua, String bairro, String cep, String cidade, double valorDaCompra, Date dataDaAquisicao, boolean disponivel) {
         this.rua = rua;
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
         this.valorDaCompra = valorDaCompra;
         this.dataDaAquisicao = dataDaAquisicao;
+        this.disponivel = disponivel;
     }
     
     /** Metodo que calcula o valor de venda sendo 120%do valor da aquisição.*/
     public double calcularVenda(double valorDaCompra){
         return (valorDaCompra * 0.2) +  valorDaCompra;
     }
-    
+
     // Declaração dos Métodos gets e sets
     public int getId() {
         return id;
@@ -94,4 +96,11 @@ public class Imovel {
         this.dataDaAquisicao = dataDaAquisicao;
     }
     
+      public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 }
