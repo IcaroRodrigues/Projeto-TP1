@@ -658,12 +658,10 @@ public class CadastrarImovel extends javax.swing.JFrame {
             e.printStackTrace();
         }
 	
-	/* Consulta SQL para obter o último ID inserido
-	String query_last_imovel = "SELECT LAST_INSERT_ID() AS last_id FROM Imovel";
-	Statement statement = connection.createStatement();
-	ResultSet resultSet = statement.executeQuery(query_last_imovel);
-	*/
-	int id = 1;
+	// inicializa o imovel
+	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
+	ImovelDAO dao = new ImovelDAO();
+
 	// TEM QUE FAZER TRATAMENTO DE EXCESSÃO AQUI
 
 	if (radioTipoLote.isSelected()) {
@@ -705,21 +703,12 @@ public class CadastrarImovel extends javax.swing.JFrame {
 	   Apartamento apartamento = new Apartamento(numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, valorCondominio, idadeDoImovel, aluga, vende, disponivel, rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
 	}
 
-	// chamar aqui pra salvar no bd
-	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao);
-	ImovelDAO dao = new ImovelDAO();
 	if (dao.salvar(imovel)){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL
 	    btnLimparActionPerformed(evt);
 	    new telaPrincipal().setVisible(true);
 	    this.setVisible(false);
 
-	    UIManager.put("OptionPane.background", Color.GREEN);
-	    UIManager.put("OptionPane.messageForeground", Color.GREEN);
-	    // Exibir o JOptionPane com mensagem
 	    JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-
-	    // Fechar o JOptionPane
-	    JOptionPane.getRootFrame().dispose();
 	}
     }//GEN-LAST:event_btnSalvarActionPerformed
 

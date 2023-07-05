@@ -50,7 +50,7 @@ public class ImovelDAO {
 	}
     }
 
-    // nesse caso só vai ter a busca de todos em cada um lote, casa e apto
+    // aqui tem que arrumar a query pra buscar todos de tudo
     public List<Imovel> buscarTodos(){
 	String query = "SELECT * FROM imovel";
 	PreparedStatement stmt = null;
