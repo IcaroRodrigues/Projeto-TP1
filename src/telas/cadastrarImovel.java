@@ -9,8 +9,6 @@ import Classes.Lote;
 import Classes.Casa;
 import Classes.Apartamento;
 import dao.ImovelDAO;
-import java.awt.Color;
-import javax.swing.UIManager;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
