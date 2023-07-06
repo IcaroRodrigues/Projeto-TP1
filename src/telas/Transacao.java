@@ -410,7 +410,7 @@ public class Transacao extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarClienteButtonActionPerformed
 
     private void buscarClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteButtonActionPerformed
-        String clienteCpf = clienteCpfText.getText().replaceAll("\\D", "");
+        String clienteCpf = clienteCpfText.getText();
         DefaultTableModel tabelaCliente = (DefaultTableModel) this.tabelaCliente.getModel();
 
         if (tabelaCliente.getRowCount() > 0) {

@@ -29,6 +29,37 @@ public class ImovelDAO {
 	con = Principal.getConnection();
     }
     
+    public List<Imovel> buscarTodos(){
+	String query = "SELECT * FROM lote";
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	List<Imovel> imoveis = new ArrayList<>();
+	
+	try {
+	    stmt = con.prepareStatement(query);
+	    rs = stmt.executeQuery();
+	    
+	    while (rs.next()){
+		Imovel imovel = new Imovel();
+		imovel.setId(rs.getInt("id"));
+		imovel.setRua(rs.getString("rua"));
+		imovel.setBairro(rs.getString("bairro"));
+		imovel.setCep(rs.getString("cep"));
+		imovel.setCidade(rs.getString("cidade"));
+		imovel.setDisponivel(rs.getBoolean("disponivel"));
+		imoveis.add(imovel); 
+	    }
+
+	} catch (SQLException ex) {
+	    System.out.println("Erro: "+ex);
+	} finally {
+	    Principal.closeConnection(con, stmt, rs);
+	}
+
+	return imoveis;
+    }
+    
     public List<Imovel> buscarDisponiveis(){
 	String query = "SELECT id, bairro, valor, valorDaCompra, dataDaAquisicao FROM apartamento, casa, lote WHERE disponivel = true ORDER BY dataDaAquisicao";
 	PreparedStatement stmt = null;

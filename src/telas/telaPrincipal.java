@@ -5,6 +5,8 @@
 package telas;
 
 import Classes.Funcionario;
+import dao.ImovelDAO;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +26,15 @@ public class telaPrincipal extends javax.swing.JFrame {
         } else {
             btnNovoFuncionario.setVisible(false);
         }
+
+        ImovelDAO imovelDAO = new ImovelDAO();
+        DefaultTableModel tabelaImoveis = (DefaultTableModel) this.tabelaImoveis.getModel();
+
+        imovelDAO.buscarTodos().forEach(imovel -> {
+            Object[] dadosImovel = {imovel.getRua(), imovel.getBairro(), imovel.getCep(), imovel.getCidade(), (imovel.isDisponivel() ? "Dísponivel" : "Não disponivel")};
+            tabelaImoveis.addRow(dadosImovel);
+        });
+
     }
 
     /**
@@ -36,7 +47,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaImoveis = new javax.swing.JTable();
         btnVenderImovel = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuImovel = new javax.swing.JMenu();
@@ -51,15 +62,23 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaImoveis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "Tipo", "Valor"
+                "Rua", "Bairro", "CEP", "Cidade", "Disponivel"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelaImoveis);
 
         btnVenderImovel.setText("Vender");
         btnVenderImovel.addActionListener(new java.awt.event.ActionListener() {
@@ -250,6 +269,6 @@ public class telaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuListaImoveis;
     private javax.swing.JMenuItem jMenuNovoCliente;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaImoveis;
     // End of variables declaration//GEN-END:variables
 }
