@@ -9,7 +9,10 @@ import Classes.Apartamento;
 import conection.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CRUD DE APARTAMENTO
@@ -83,6 +86,45 @@ public class ApartamentoDAO {
 	    Principal.closeConnection(con, stmt);
 	}
     }
+
+    public List<Apartamento> buscarTodos(){
+	String query = "SELECT * FROM apartamento";
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	List<Apartamento> apartamentos = new ArrayList<>();
+	
+	try {
+	    stmt = con.prepareStatement(query);
+	    rs = stmt.executeQuery();
+
+	    while (rs.next()){
+		Apartamento apartamento = new Apartamento();
+		stmt = con.prepareStatement(query);
+		apartamento.setRua(rs.getString("rua"));
+		apartamento.setBairro(rs.getString("bairro"));
+		apartamento.setCep(rs.getString("cep"));
+		apartamento.setCidade(rs.getString("cidade"));
+		apartamento.setValorDaCompra(rs.getDouble("valorDaCompra"));
+		apartamento.setDataDaAquisicao(rs.getDate("dataDaAquisicao"));
+		apartamento.setDisponivel(rs.getBoolean("disponivel"));
+		apartamento.setNumeroDoAndar(rs.getInt("numeroDoAndar"));
+		apartamento.setNumeroDoApartamento(rs.getInt("numeroDoApartamento"));
+		apartamento.setQntDeComodos(rs.getInt("qntDeComodos"));
+		apartamento.setQntDePavimentos(rs.getInt("qntDePavimentos"));
+		apartamento.setIdadeDoImovel(rs.getInt("idadeDoImovel"));
+	    }
+
+	} catch (SQLException ex) {
+	    System.out.println("Erro: "+ex);
+	} finally {
+	    Principal.closeConnection(con, stmt, rs);
+	}
+
+	return apartamentos;
+
+    }
+
     public boolean excluir(Imovel imovel){
 	// query para inserir um novo imóvel
 	String query = "DELETE * FROM apartamento WHERE id = ?";

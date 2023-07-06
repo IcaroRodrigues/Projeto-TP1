@@ -9,7 +9,10 @@ import Classes.Casa;
 import conection.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CRUD DE CASA
@@ -85,7 +88,45 @@ public class CasaDAO {
 	    Principal.closeConnection(con, stmt);
 	}
     }
+    
+     public List<Casa> buscarTodos(){
+	String query = "SELECT * FROM casa";
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	List<Casa> casas = new ArrayList<>();
+	
+	try {
+	    stmt = con.prepareStatement(query);
+	    rs = stmt.executeQuery();
 
+	    while (rs.next()){
+		Casa casa = new Casa();
+		stmt = con.prepareStatement(query);
+		casa.setRua(rs.getString("rua"));
+		casa.setBairro(rs.getString("bairro"));
+		casa.setCep(rs.getString("cep"));
+		casa.setCidade(rs.getString("cidade"));
+		casa.setValorDaCompra(rs.getDouble("valorDaCompra"));
+		casa.setDataDaAquisicao(rs.getDate("dataDaAquisicao"));
+		casa.setDisponivel(rs.getBoolean("disponivel"));
+		casa.setTamanhoDoLote(rs.getDouble("tamanhoDoLote"));
+		casa.setAreaConstruida(rs.getDouble("areaConstruida"));
+		casa.setNumeroDaCasa(rs.getInt("numeroDaCasa"));
+		casa.setQntDeComodos(rs.getInt("qntDeComodos"));
+		casa.setQntDePavimentos(rs.getInt("qntDePavimentos"));
+		casa.setIdadeDoImovel(rs.getInt("idadeDoImovel"));
+	    }
+
+	} catch (SQLException ex) {
+	    System.out.println("Erro: "+ex);
+	} finally {
+	    Principal.closeConnection(con, stmt, rs);
+	}
+
+	return casas;
+
+    }
     public boolean excluir(Imovel imovel){
 	// query para inserir um novo imóvel
 	String query = "DELETE * FROM casa WHERE id = ?";

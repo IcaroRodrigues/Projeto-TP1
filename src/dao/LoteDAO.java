@@ -9,7 +9,10 @@ import Classes.Lote;
 import conection.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CRUD DE LOTE
@@ -78,6 +81,41 @@ public class LoteDAO {
 	} finally {
 	    Principal.closeConnection(con, stmt);
 	}
+    }
+    
+    public List<Lote> buscarTodos(){
+	String query = "SELECT * FROM casa";
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	List<Lote> lotes = new ArrayList<>();
+	
+	try {
+	    stmt = con.prepareStatement(query);
+	    rs = stmt.executeQuery();
+
+	    while (rs.next()){
+		Lote lote = new Lote();
+		stmt = con.prepareStatement(query);
+		lote.setRua(rs.getString("rua"));
+		lote.setBairro(rs.getString("bairro"));
+		lote.setCep(rs.getString("cep"));
+		lote.setCidade(rs.getString("cidade"));
+		lote.setValorDaCompra(rs.getDouble("valorDaCompra"));
+		lote.setDataDaAquisicao(rs.getDate("dataDaAquisicao"));
+		lote.setDisponivel(rs.getBoolean("disponivel"));
+		lote.setNumeroDoLote(rs.getInt("numeroDoLote"));
+		lote.setAreaDoLote(rs.getDouble("areaDoLote"));
+	    }
+
+	} catch (SQLException ex) {
+	    System.out.println("Erro: "+ex);
+	} finally {
+	    Principal.closeConnection(con, stmt, rs);
+	}
+
+	return lotes;
+
     }
 
     public boolean excluir(Imovel imovel){
