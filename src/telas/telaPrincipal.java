@@ -4,17 +4,26 @@
  */
 package telas;
 
+import Classes.Funcionario;
+
 /**
  *
  * @author dyesi
  */
 public class telaPrincipal extends javax.swing.JFrame {
 
+    Funcionario funcionarioLogado = new main().funcionarioLogado;
+
     /**
      * Creates new form telaPrincipal
      */
     public telaPrincipal() {
         initComponents();
+        if (funcionarioLogado.isAdm()) {
+            btnNovoFuncionario.setVisible(true);
+        } else {
+            btnNovoFuncionario.setVisible(false);
+        }
     }
 
     /**
@@ -36,9 +45,9 @@ public class telaPrincipal extends javax.swing.JFrame {
         jMenuCliente = new javax.swing.JMenu();
         jMenuListaClientes = new javax.swing.JMenuItem();
         jMenuNovoCliente = new javax.swing.JMenuItem();
-        jMenuFuncionario = new javax.swing.JMenu();
+        btnMenuFuncionario = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnNovoFuncionario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,7 +108,12 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuCliente);
 
-        jMenuFuncionario.setText("Funcionário");
+        btnMenuFuncionario.setText("Funcionário");
+        btnMenuFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuFuncionarioActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Lista");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,18 +121,18 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenuFuncionario.add(jMenuItem1);
+        btnMenuFuncionario.add(jMenuItem1);
 
-        jMenuItem2.setText("Novo");
-        jMenuItem2.setMaximumSize(new java.awt.Dimension(1000, 600));
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnNovoFuncionario.setText("Novo");
+        btnNovoFuncionario.setMaximumSize(new java.awt.Dimension(1000, 600));
+        btnNovoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnNovoFuncionarioActionPerformed(evt);
             }
         });
-        jMenuFuncionario.add(jMenuItem2);
+        btnMenuFuncionario.add(btnNovoFuncionario);
 
-        jMenuBar1.add(jMenuFuncionario);
+        jMenuBar1.add(btnMenuFuncionario);
 
         setJMenuBar(jMenuBar1);
 
@@ -174,15 +188,19 @@ public class telaPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void btnNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFuncionarioActionPerformed
         new CadastroCorretor().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnNovoFuncionarioActionPerformed
 
     private void btnVenderImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderImovelActionPerformed
         this.setVisible(false);
         new Transacao().setVisible(true);
     }//GEN-LAST:event_btnVenderImovelActionPerformed
+
+    private void btnMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioActionPerformed
+
+    }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,13 +238,13 @@ public class telaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnMenuFuncionario;
+    private javax.swing.JMenuItem btnNovoFuncionario;
     private javax.swing.JButton btnVenderImovel;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCliente;
-    private javax.swing.JMenu jMenuFuncionario;
     private javax.swing.JMenu jMenuImovel;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuListaClientes;
     private javax.swing.JMenuItem jMenuListaImoveis;
