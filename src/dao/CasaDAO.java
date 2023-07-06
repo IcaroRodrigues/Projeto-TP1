@@ -116,6 +116,7 @@ public class CasaDAO {
 		casa.setQntDeComodos(rs.getInt("qntDeComodos"));
 		casa.setQntDePavimentos(rs.getInt("qntDePavimentos"));
 		casa.setIdadeDoImovel(rs.getInt("idadeDoImovel"));
+		casas.add(casa);
 	    }
 
 	} catch (SQLException ex) {

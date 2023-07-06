@@ -28,16 +28,15 @@ public class telaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         btnVenderImovel = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuNovoImovel = new javax.swing.JMenu();
+        jMenuImovel = new javax.swing.JMenu();
         jMenuListaImoveis = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuCliente = new javax.swing.JMenu();
         jMenuListaClientes = new javax.swing.JMenuItem();
         jMenuNovoCliente = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuFuncionario = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -53,8 +52,6 @@ public class telaPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("aqui terão os filtros que podemos pesquisar nessa lista de imóveis disponíveis");
-
         btnVenderImovel.setText("Vender");
         btnVenderImovel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +59,7 @@ public class telaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuNovoImovel.setText("Imóveis");
+        jMenuImovel.setText("Imóveis");
 
         jMenuListaImoveis.setText("Lista");
         jMenuListaImoveis.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +67,7 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuListaImoveisActionPerformed(evt);
             }
         });
-        jMenuNovoImovel.add(jMenuListaImoveis);
+        jMenuImovel.add(jMenuListaImoveis);
 
         jMenuItem4.setText("Novo");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -78,11 +75,11 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenuNovoImovel.add(jMenuItem4);
+        jMenuImovel.add(jMenuItem4);
 
-        jMenuBar1.add(jMenuNovoImovel);
+        jMenuBar1.add(jMenuImovel);
 
-        jMenu2.setText("Clientes");
+        jMenuCliente.setText("Clientes");
 
         jMenuListaClientes.setText("Lista");
         jMenuListaClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +87,7 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuListaClientesActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuListaClientes);
+        jMenuCliente.add(jMenuListaClientes);
 
         jMenuNovoCliente.setText("Novo");
         jMenuNovoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -98,11 +95,11 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuNovoClienteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuNovoCliente);
+        jMenuCliente.add(jMenuNovoCliente);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuCliente);
 
-        jMenu1.setText("Funcionário");
+        jMenuFuncionario.setText("Funcionário");
 
         jMenuItem1.setText("Lista");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +107,7 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuFuncionario.add(jMenuItem1);
 
         jMenuItem2.setText("Novo");
         jMenuItem2.setMaximumSize(new java.awt.Dimension(1000, 600));
@@ -119,9 +116,9 @@ public class telaPrincipal extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenuFuncionario.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuFuncionario);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,21 +131,14 @@ public class telaPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(btnVenderImovel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(450, 450, 450)
+                .addComponent(btnVenderImovel)
+                .addContainerGap(494, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addContainerGap(156, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVenderImovel)
@@ -231,17 +221,16 @@ public class telaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVenderImovel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuCliente;
+    private javax.swing.JMenu jMenuFuncionario;
+    private javax.swing.JMenu jMenuImovel;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuListaClientes;
     private javax.swing.JMenuItem jMenuListaImoveis;
     private javax.swing.JMenuItem jMenuNovoCliente;
-    private javax.swing.JMenu jMenuNovoImovel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

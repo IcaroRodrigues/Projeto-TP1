@@ -106,6 +106,7 @@ public class LoteDAO {
 		lote.setDisponivel(rs.getBoolean("disponivel"));
 		lote.setNumeroDoLote(rs.getInt("numeroDoLote"));
 		lote.setAreaDoLote(rs.getDouble("areaDoLote"));
+		lotes.add(lote);
 	    }
 
 	} catch (SQLException ex) {

@@ -62,13 +62,14 @@ public class FuncionarioDAO {
 
     public boolean editar(Funcionario funcionario){
 	// query para inserir um novo imóvel
-	String query = "UPDATE funcionario SET nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, salario = ?, adm = ? WHERE id = ?";
+	String query = "UPDATE funcionario SET id = ?, nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, salario = ?, senha = ?, adm = ? WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt.setString(1, funcionario.getNome());
-	    stmt.setString(2, funcionario.getRg());
-	    stmt.setString(3, funcionario.getCpf());
+	    stmt.setString(2, funcionario.getNome());
+	    stmt.setString(3, funcionario.getRg());
+	    stmt.setString(4, funcionario.getCpf());
 
 	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	    Date dataNascimento = null;
@@ -78,11 +79,12 @@ public class FuncionarioDAO {
 		e.printStackTrace();
 	    }
 
-	    stmt.setDate(4, new java.sql.Date(dataNascimento.getTime()));
-	    stmt.setString(5, funcionario.getTelefone());
-	    stmt.setFloat(6,  funcionario.getSalario());
-	    stmt.setBoolean(7,  funcionario.isAdm());
-	    stmt.setInt(8,  funcionario.getId());
+	    stmt.setDate(5, new java.sql.Date(dataNascimento.getTime()));
+	    stmt.setString(6, funcionario.getTelefone());
+	    stmt.setFloat(7,  funcionario.getSalario());
+	    stmt.setString(8,  funcionario.getSenha());
+	    stmt.setBoolean(9,  funcionario.isAdm());
+	    stmt.setInt(10,  funcionario.getId());
 	    // salva os dados no bd
 	    stmt.executeUpdate();
 	    return true;
@@ -104,17 +106,19 @@ public class FuncionarioDAO {
 	try {
 	    stmt = con.prepareStatement(query);
 	    rs = stmt.executeQuery();
-
+	    
 	    while (rs.next()){
 		Funcionario funcionario = new Funcionario();
-
+		funcionario.setId(rs.getInt("id"));
 		funcionario.setNome(rs.getString("nome"));
 		funcionario.setRg(rs.getString("rg"));
 		funcionario.setCpf(rs.getString("cpf"));
 		funcionario.setDataNascimento(rs.getString("dataNascimento"));
 		funcionario.setTelefone(rs.getString("telefone"));
 		funcionario.setSalario(rs.getFloat("salario"));
+		funcionario.setSenha(rs.getString("senha"));
 		funcionario.setAdm(rs.getBoolean("adm"));
+		funcionarios.add(funcionario); 
 	    }
 
 	} catch (SQLException ex) {

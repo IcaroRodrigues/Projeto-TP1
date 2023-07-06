@@ -64,13 +64,14 @@ public class ClienteDAO {
 
     public boolean editar(Cliente cliente){
 	// query para inserir um novo imóvel
-	String query = "UPDATE cliente SET nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, ocupacao = ? WHERE id = ?";
+	String query = "UPDATE cliente SET id = ?, nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, ocupacao = ? WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
-	    stmt.setString(1, cliente.getNome());
-	    stmt.setString(2, cliente.getRg());
-	    stmt.setString(3, cliente.getCpf());
+	    stmt.setInt(1, cliente.getId());
+	    stmt.setString(2, cliente.getNome());
+	    stmt.setString(3, cliente.getRg());
+	    stmt.setString(4, cliente.getCpf());
 
 	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	    Date dataNascimento = null;
@@ -80,10 +81,10 @@ public class ClienteDAO {
 		e.printStackTrace();
 	    }
 
-	    stmt.setDate(4, new java.sql.Date(dataNascimento.getTime()));
-	    stmt.setString(5, cliente.getTelefone());
-	    stmt.setString(6,  cliente.getOcupacao());
-	    stmt.setInt(7,  cliente.getId());
+	    stmt.setDate(5, new java.sql.Date(dataNascimento.getTime()));
+	    stmt.setString(6, cliente.getTelefone());
+	    stmt.setString(7,  cliente.getOcupacao());
+	    stmt.setInt(8,  cliente.getId());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();
@@ -109,12 +110,14 @@ public class ClienteDAO {
 
 	    while (rs.next()){
 		Cliente cliente = new Cliente();
+		cliente.setId(rs.getInt("id"));
 		cliente.setNome(rs.getString("nome"));
 		cliente.setRg(rs.getString("rg"));
 		cliente.setCpf(rs.getString("cpf"));
-		cliente.setDataNascimento(rs.getString("cidade"));
+		cliente.setDataNascimento(rs.getString("dataNascimento"));
 		cliente.setTelefone(rs.getString("telefone"));
 		cliente.setOcupacao(rs.getString("ocupacao"));
+		clientes.add(cliente);
 	    }
 
 	} catch (SQLException ex) {

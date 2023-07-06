@@ -113,6 +113,7 @@ public class ApartamentoDAO {
 		apartamento.setQntDeComodos(rs.getInt("qntDeComodos"));
 		apartamento.setQntDePavimentos(rs.getInt("qntDePavimentos"));
 		apartamento.setIdadeDoImovel(rs.getInt("idadeDoImovel"));
+		apartamentos.add(apartamento);
 	    }
 
 	} catch (SQLException ex) {
