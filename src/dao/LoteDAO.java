@@ -22,16 +22,22 @@ public class LoteDAO {
 	con = Principal.getConnection();
     }
     
-    public boolean salvar(Lote lote, int imovel_id){
+    public boolean salvar(Lote lote){
 	// query para inserir um novo imóvel
-	String query = "INSERT INTO lote (imovel_id, numeroDoLote, areaDoLote) VALUES (?, ?, ?)";
+	String query = "INSERT INTO lote (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel, numeroDoLote, areaDoLote) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt = con.prepareStatement(query);
-	    stmt.setInt(1, imovel_id);
-	    stmt.setInt(2, lote.getNumeroDoLote());
-	    stmt.setDouble(3, lote.getAreaDoLote());
+	    stmt.setString(1, lote.getRua());
+	    stmt.setString(2, lote.getBairro());
+	    stmt.setString(3, lote.getCep());
+	    stmt.setString(4, lote.getCidade());
+	    stmt.setDouble(5, lote.getValorDaCompra());
+	    stmt.setDate(6,  new java.sql.Date(lote.getDataDaAquisicao().getTime()));
+	    stmt.setBoolean(7,  lote.isDisponivel());
+	    stmt.setInt(8, lote.getNumeroDoLote());
+	    stmt.setDouble(9, lote.getAreaDoLote());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();
@@ -47,14 +53,21 @@ public class LoteDAO {
 
     public boolean editar(Lote lote){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET numeroDoLote = ?, areaDoLote = ?  WHERE id = ?";
+	String query = "UPDATE imovel SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ?, numeroDoLote = ?, areaDoLote = ?  WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
 	    stmt = con.prepareStatement(query);
-	    stmt.setInt(1, lote.getNumeroDoLote());
-	    stmt.setDouble(2, lote.getAreaDoLote());
-	    stmt.setInt(3, lote.getId());
+	    stmt.setString(1, lote.getRua());
+	    stmt.setString(2, lote.getBairro());
+	    stmt.setString(3, lote.getCep());
+	    stmt.setString(4, lote.getCidade());
+	    stmt.setDouble(5, lote.getValorDaCompra());
+	    stmt.setDate(6,  new java.sql.Date(lote.getDataDaAquisicao().getTime()));
+	    stmt.setBoolean(7,  lote.isDisponivel());
+	    stmt.setInt(8, lote.getNumeroDoLote());
+	    stmt.setDouble(9, lote.getAreaDoLote());
+	    stmt.setInt(10, lote.getId());
 	    
 	    // salva os dados no bd
 	    stmt.executeUpdate();
