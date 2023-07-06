@@ -18,21 +18,22 @@ import javax.swing.table.DefaultTableModel;
  * @author icaro
  */
 public class Transacao extends javax.swing.JFrame {
+
+    Funcionario funcionarioLogado = new main().funcionarioLogado;
+
     /**
      * Creates new form Transacao
      */
     private Cliente cliente = new Cliente();
     private Imovel imovel = new Casa();
     private Funcionario funcionario = new Funcionario();
-    
+
     public Transacao() {
         initComponents();
 
-        this.funcionario = new Funcionario( "Icaro Rodrigues", "9999999", "99999999999", "04/04/1997", "99999999999", 3500, "1234", false);
-        
-        corretorNomeInput.setText(funcionario.getNome());
-        corretorCpfInput.setText(funcionario.getCpf());
-        corretorTelefoneInput.setText(funcionario.getTelefone());
+        corretorNomeInput.setText(funcionarioLogado.getNome());
+        corretorCpfInput.setText(funcionarioLogado.getCpf());
+        corretorTelefoneInput.setText(funcionarioLogado.getTelefone());
 
         DefaultTableModel tabelaImovel = (DefaultTableModel) this.tabelaImovel.getModel();
 
@@ -441,8 +442,8 @@ public class Transacao extends javax.swing.JFrame {
 
     private void tabelaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClienteMouseClicked
         int i = tabelaCliente.getSelectedRow();
-        
-        if ( i >= 0 && i < CadastroCliente.listaCliente.size()) {
+
+        if (i >= 0 && i < CadastroCliente.listaCliente.size()) {
             Cliente dadosCliente = CadastroCliente.listaCliente.get(i);
             this.cliente = dadosCliente;
         }
