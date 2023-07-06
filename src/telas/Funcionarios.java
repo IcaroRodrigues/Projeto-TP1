@@ -4,6 +4,9 @@
  */
 package telas;
 
+import dao.FuncionarioDAO;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dyesi
@@ -15,6 +18,21 @@ public class Funcionarios extends javax.swing.JFrame {
      */
     public Funcionarios() {
 	initComponents();
+        
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        DefaultTableModel tabelaFuncionarios = (DefaultTableModel) this.tabelaFuncionarios.getModel();
+
+        funcionarioDAO.buscarTodos().forEach(funcionario -> {
+            Object[] dadosFuncionarios = {
+                funcionario.getNome(), 
+                funcionario.getRg(), 
+                funcionario.getCpf(), 
+                funcionario.getDataNascimento(), 
+                funcionario.getTelefone()
+            };
+            
+            tabelaFuncionarios.addRow(dadosFuncionarios);
+        });
     }
 
     /**
@@ -26,45 +44,136 @@ public class Funcionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btnExcluirFuncionario = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        btnAdicionarFuncionario = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaFuncionarios = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btnVoltarTelaPrincipal = new javax.swing.JMenuItem();
+        btnSairPrograma = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Funcionários");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btnExcluirFuncionario.setText("Excluir");
+        btnExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirFuncionarioActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Editar");
+
+        btnAdicionarFuncionario.setText("Novo");
+        btnAdicionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        tabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "RG", "CPF", "Data de Nascimento", "Telefone"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabelaFuncionarios);
+
+        jMenu1.setText("Menu");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        btnVoltarTelaPrincipal.setText("Tela Principal");
+        btnVoltarTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarTelaPrincipalActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnVoltarTelaPrincipal);
+
+        btnSairPrograma.setText("Sair");
+        btnSairPrograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairProgramaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnSairPrograma);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(btnAdicionarFuncionario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirFuncionario))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdicionarFuncionario)
+                    .addComponent(jButton3)
+                    .addComponent(btnExcluirFuncionario))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFuncionarioActionPerformed
+    
+    }//GEN-LAST:event_btnExcluirFuncionarioActionPerformed
+
+    private void btnAdicionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionarioActionPerformed
+        new CadastroCorretor().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAdicionarFuncionarioActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void btnVoltarTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTelaPrincipalActionPerformed
+        new telaPrincipal().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarTelaPrincipalActionPerformed
+
+    private void btnSairProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairProgramaActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSairProgramaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,7 +211,14 @@ public class Funcionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton btnAdicionarFuncionario;
+    private javax.swing.JButton btnExcluirFuncionario;
+    private javax.swing.JMenuItem btnSairPrograma;
+    private javax.swing.JMenuItem btnVoltarTelaPrincipal;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tabelaFuncionarios;
     // End of variables declaration//GEN-END:variables
 }
