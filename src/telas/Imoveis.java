@@ -28,13 +28,14 @@ public class Imoveis extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableImovel = new javax.swing.JTable();
-        btnVoltarImovel = new javax.swing.JButton();
         btnNovoImovel = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btnVoltarImovel = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Imobiliária");
-        setMaximumSize(new java.awt.Dimension(1000, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         tableImovel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -54,13 +55,6 @@ public class Imoveis extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableImovel);
 
-        btnVoltarImovel.setText("Voltar");
-        btnVoltarImovel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarImovelActionPerformed(evt);
-            }
-        });
-
         btnNovoImovel.setText("Novo");
         btnNovoImovel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,13 +62,32 @@ public class Imoveis extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("Menu");
+
+        btnVoltarImovel.setText("Voltar");
+        btnVoltarImovel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarImovelActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnVoltarImovel);
+
+        jMenuItem2.setText("Sair");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnVoltarImovel)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -85,8 +98,7 @@ public class Imoveis extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(btnVoltarImovel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNovoImovel)
@@ -97,15 +109,19 @@ public class Imoveis extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltarImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarImovelActionPerformed
-        new telaPrincipal().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnVoltarImovelActionPerformed
-
     private void btnNovoImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoImovelActionPerformed
         new cadastrarImovel().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNovoImovelActionPerformed
+
+    private void btnVoltarImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarImovelActionPerformed
+        this.setVisible(false);
+        new telaPrincipal().setVisible(true);
+    }//GEN-LAST:event_btnVoltarImovelActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,7 +160,10 @@ public class Imoveis extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovoImovel;
-    private javax.swing.JButton btnVoltarImovel;
+    private javax.swing.JMenuItem btnVoltarImovel;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableImovel;
     // End of variables declaration//GEN-END:variables
