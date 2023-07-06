@@ -22,9 +22,9 @@ public class telaPrincipal extends javax.swing.JFrame {
     public telaPrincipal() {
         initComponents();
         if (funcionarioLogado.isAdm()) {
-            btnNovoFuncionario.setVisible(true);
+            btnMenuFuncionario.setVisible(true);
         } else {
-            btnNovoFuncionario.setVisible(false);
+            btnMenuFuncionario.setVisible(false);
         }
 
         ImovelDAO imovelDAO = new ImovelDAO();
