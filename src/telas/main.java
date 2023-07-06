@@ -4,11 +4,18 @@
  */
 package telas;
 
+import Classes.Funcionario;
+import dao.FuncionarioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dyesi
  */
 public class main extends javax.swing.JFrame {
+
+    public static Funcionario funcionario = new Funcionario();
+    public Boolean funcionarioExists = false;
 
     /**
      * Creates new form main
@@ -30,8 +37,8 @@ public class main extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         labelCpf = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        inputPasswordFuncionario = new javax.swing.JPasswordField();
+        inputCpfFuncionario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -50,7 +57,7 @@ public class main extends javax.swing.JFrame {
         labelCpf.setText("CPF:");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            inputCpfFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -70,8 +77,8 @@ public class main extends javax.swing.JFrame {
                             .addComponent(labelCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))))
+                            .addComponent(inputPasswordFuncionario)
+                            .addComponent(inputCpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))))
                 .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,11 +89,11 @@ public class main extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCpf)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputCpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputPasswordFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
                 .addContainerGap(131, Short.MAX_VALUE))
@@ -97,8 +104,32 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        new telaPrincipal().setVisible(true);
-        this.setVisible(false);
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        String cpfFuncionario = inputCpfFuncionario.getText();
+        String passwordFuncionario = inputPasswordFuncionario.getText();
+
+        if (cpfFuncionario.equals("") || passwordFuncionario.equals("")) {
+            JOptionPane.showMessageDialog(null, "Todos os campos são necessários!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            for (Funcionario f : funcionarioDAO.buscarTodos()) {
+                if (f.getCpf().equals(cpfFuncionario)) {
+                    funcionario = f;
+                    funcionarioExists = true;
+                }
+            }
+
+            if (funcionarioExists) {
+                if (funcionario.validarSenha(cpfFuncionario, passwordFuncionario)) {
+                    new telaPrincipal().setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Cpf ou senha inválida!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Funcionário não encontrado!", "Aviso!", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -138,9 +169,9 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField inputCpfFuncionario;
+    private javax.swing.JPasswordField inputPasswordFuncionario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelSenha;
     // End of variables declaration//GEN-END:variables
