@@ -53,7 +53,7 @@ public class LoteDAO {
 
     public boolean editar(Lote lote){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ?, numeroDoLote = ?, areaDoLote = ?  WHERE id = ?";
+	String query = "UPDATE lote SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ?, numeroDoLote = ?, areaDoLote = ?  WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
@@ -82,7 +82,7 @@ public class LoteDAO {
 
     public boolean excluir(Imovel imovel){
 	// query para inserir um novo imóvel
-	String query = "DELETE * FROM lote WHERE imovel_id = ?";
+	String query = "DELETE * FROM lote WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {

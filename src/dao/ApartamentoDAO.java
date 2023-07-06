@@ -24,7 +24,7 @@ public class ApartamentoDAO {
     
     public boolean salvar(Apartamento apartamento){
 	// query para inserir uma nova casa
-	String query = "INSERT INTO casa (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel, numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, idadeDoImovel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String query = "INSERT INTO apartamento (rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao, disponivel, numeroDoAndar, numeroDoApartamento, qntDeComodos, qntDePavimentos, idadeDoImovel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	PreparedStatement stmt = null;
 
 	try {
@@ -54,7 +54,7 @@ public class ApartamentoDAO {
 
     public boolean editar(Apartamento apartamento){
 	// query para inserir um novo imóvel
-	String query = "UPDATE imovel SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ?, numeroDoAndar = ?, numeroDoApartamento = ?, qntDeComodos = ?, qntDePavimentos = ?, idadeDoImovel = ?  WHERE id = ?";
+	String query = "UPDATE apartamento SET rua = ?, bairro = ?, cep = ?, cidade = ?, valorDaCompra = ?, dataDaAquisicao = ?, disponivel = ?, numeroDoAndar = ?, numeroDoApartamento = ?, qntDeComodos = ?, qntDePavimentos = ?, idadeDoImovel = ?  WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {
@@ -85,7 +85,7 @@ public class ApartamentoDAO {
     }
     public boolean excluir(Imovel imovel){
 	// query para inserir um novo imóvel
-	String query = "DELETE * FROM apartamento WHERE imovel_id = ?";
+	String query = "DELETE * FROM apartamento WHERE id = ?";
 	PreparedStatement stmt = null;
 
 	try {

@@ -10,7 +10,6 @@ import Classes.Casa;
 import Classes.Apartamento;
 import dao.ApartamentoDAO;
 import dao.CasaDAO;
-import dao.ImovelDAO;
 import dao.LoteDAO;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -589,7 +588,6 @@ public class cadastrarImovel extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         boolean salvoutipo = false;
-	boolean salvou = false;
 
 	// Obter os valores dos campos de texto do Imovel
         String rua = txtRuaImovel.getText();
@@ -607,15 +605,7 @@ public class cadastrarImovel extends javax.swing.JFrame {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-	
-	// inicializa o imovel
-	Imovel imovel = new Imovel(rua, bairro, cep, cidade, valorDaCompra, dataDaAquisicao,disponivel);
-	ImovelDAO imovelDao = new ImovelDAO();
-	if (imovelDao.salvar(imovel)){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL
-	    salvou = true;
-	}
 
-	// TEM QUE FAZER TRATAMENTO DE EXCESSÃO AQUI
 
 	if (radioTipoLote.isSelected()) {
 	    // Obter os valores específicos do Lote
@@ -662,12 +652,13 @@ public class cadastrarImovel extends javax.swing.JFrame {
 	    
 	}
 
-	if (salvou && salvoutipo){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL
+	if (salvoutipo){ // AQUI COLOCA UM AND SE SALVOU OS DOIS IMOVEL E O FILHO DE IMOVEL
 	    btnLimparActionPerformed(evt);
 	    new telaPrincipal().setVisible(true);
 	    this.setVisible(false);
 	    JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	} else {System.out.println(salvou);System.out.println(salvoutipo);}
+	} 
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
