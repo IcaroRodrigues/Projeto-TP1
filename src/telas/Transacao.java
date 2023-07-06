@@ -55,10 +55,8 @@ public class Transacao extends javax.swing.JFrame {
         pnlDadosCorretor = new javax.swing.JPanel();
         nomeCorretor = new javax.swing.JLabel();
         cpfCorretor = new javax.swing.JLabel();
-        Creci = new javax.swing.JLabel();
         telefoneCorretor = new javax.swing.JLabel();
         corretorNomeInput = new javax.swing.JTextField();
-        corretorCreciInput = new javax.swing.JTextField();
         corretorCpfInput = new javax.swing.JFormattedTextField();
         corretorTelefoneInput = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -80,7 +78,6 @@ public class Transacao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Transação");
-        setPreferredSize(new java.awt.Dimension(820, 820));
         setResizable(false);
 
         pnlTransacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Transação"));
@@ -92,8 +89,6 @@ public class Transacao extends javax.swing.JFrame {
 
         cpfCorretor.setText("CPF:");
 
-        Creci.setText("CRECI:");
-
         telefoneCorretor.setText("Telefone:");
 
         corretorNomeInput.setEditable(false);
@@ -101,14 +96,6 @@ public class Transacao extends javax.swing.JFrame {
         corretorNomeInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 corretorNomeInputActionPerformed(evt);
-            }
-        });
-
-        corretorCreciInput.setEditable(false);
-        corretorCreciInput.setEnabled(false);
-        corretorCreciInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                corretorCreciInputActionPerformed(evt);
             }
         });
 
@@ -143,43 +130,35 @@ public class Transacao extends javax.swing.JFrame {
                 .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Creci)
-                            .addComponent(telefoneCorretor))
+                        .addComponent(telefoneCorretor)
                         .addGap(3, 3, 3))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosCorretorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cpfCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
-                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(corretorCreciInput, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(corretorNomeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(corretorTelefoneInput, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                            .addComponent(corretorCpfInput))))
+                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(corretorNomeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(corretorTelefoneInput, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                        .addComponent(corretorCpfInput)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDadosCorretorLayout.setVerticalGroup(
             pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDadosCorretorLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(30, 30, 30)
                 .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeCorretor)
                     .addComponent(corretorNomeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpfCorretor)
                     .addComponent(corretorCpfInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(30, 30, 30)
                 .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefoneCorretor)
                     .addComponent(corretorTelefoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(pnlDadosCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Creci)
-                    .addComponent(corretorCreciInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Cliente"));
@@ -246,7 +225,7 @@ public class Transacao extends javax.swing.JFrame {
                         .addComponent(clienteCPF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clienteCpfText, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buscarClienteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(cadastrarClienteButton)))
@@ -308,7 +287,7 @@ public class Transacao extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -328,15 +307,13 @@ public class Transacao extends javax.swing.JFrame {
                 .addGroup(pnlTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlTransacaoLayout.createSequentialGroup()
-                        .addGroup(pnlTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlTransacaoLayout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(finalizarTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(cancelaTransacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(167, 167, 167)
+                        .addComponent(finalizarTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(cancelaTransacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 165, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlTransacaoLayout.setVerticalGroup(
@@ -344,15 +321,15 @@ public class Transacao extends javax.swing.JFrame {
             .addGroup(pnlTransacaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlDadosCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(30, 30, 30)
                 .addGroup(pnlTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(finalizarTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelaTransacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Menu");
@@ -382,15 +359,15 @@ public class Transacao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(pnlTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
-                .addGap(659, 659, 659))
+                .addGap(0, 0, 0)
+                .addComponent(pnlTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(pnlTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -407,10 +384,6 @@ public class Transacao extends javax.swing.JFrame {
         // SAIR DO PROGRAMA
         System.exit(0);
     }//GEN-LAST:event_mnSairProgramaActionPerformed
-
-    private void corretorCreciInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corretorCreciInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_corretorCreciInputActionPerformed
 
     private void corretorNomeInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corretorNomeInputActionPerformed
         // TODO add your handling code here:
@@ -511,14 +484,12 @@ public class Transacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Creci;
     private javax.swing.JButton buscarClienteButton;
     private javax.swing.JButton cadastrarClienteButton;
     private javax.swing.JButton cancelaTransacaoButton;
     private javax.swing.JLabel clienteCPF;
     private javax.swing.JFormattedTextField clienteCpfText;
     private javax.swing.JFormattedTextField corretorCpfInput;
-    private javax.swing.JTextField corretorCreciInput;
     private javax.swing.JTextField corretorNomeInput;
     private javax.swing.JFormattedTextField corretorTelefoneInput;
     private javax.swing.JLabel cpfCorretor;

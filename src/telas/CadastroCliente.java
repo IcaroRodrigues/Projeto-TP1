@@ -56,7 +56,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtOcupacaoCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Cliente");
+        setTitle("Cadastrar Cliente");
 
         lblNomeCliente.setText("Nome Cliente:");
 
