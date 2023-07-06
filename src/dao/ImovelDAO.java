@@ -30,7 +30,7 @@ public class ImovelDAO {
     }
     
     public List<Imovel> buscarDisponiveis(){
-	String query = "SELECT * FROM apartamento";
+	String query = "SELECT id, bairro, valor, valorDaCompra, dataDaAquisicao FROM apartamento, casa, lote WHERE disponivel = true ORDER BY dataDaAquisicao";
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
@@ -41,21 +41,13 @@ public class ImovelDAO {
 	    rs = stmt.executeQuery();
 
 	    while (rs.next()){
-		Apartamento apartamento = new Apartamento();
+		Imovel imovel = new Imovel();
 		stmt = con.prepareStatement(query);
-		apartamento.setRua(rs.getString("rua"));
-		apartamento.setBairro(rs.getString("bairro"));
-		apartamento.setCep(rs.getString("cep"));
-		apartamento.setCidade(rs.getString("cidade"));
-		apartamento.setValorDaCompra(rs.getDouble("valorDaCompra"));
-		apartamento.setDataDaAquisicao(rs.getDate("dataDaAquisicao"));
-		apartamento.setDisponivel(rs.getBoolean("disponivel"));
-		apartamento.setNumeroDoAndar(rs.getInt("numeroDoAndar"));
-		apartamento.setNumeroDoApartamento(rs.getInt("numeroDoApartamento"));
-		apartamento.setQntDeComodos(rs.getInt("qntDeComodos"));
-		apartamento.setQntDePavimentos(rs.getInt("qntDePavimentos"));
-		apartamento.setIdadeDoImovel(rs.getInt("idadeDoImovel"));
-		imoveis.add(apartamento);
+		imovel.setId(rs.getInt("id"));
+                imovel.setValorDaCompra(rs.getDouble("valor"));
+		imovel.setBairro(rs.getString("endereco"));
+                imovel.calcularVenda(rs.getDouble("venda"));
+		imoveis.add(imovel);
 	    }
 
 	} catch (SQLException ex) {
