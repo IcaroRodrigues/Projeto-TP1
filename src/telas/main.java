@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class main extends javax.swing.JFrame {
 
-    public static Funcionario funcionario = new Funcionario();
     public Boolean funcionarioExists = false;
+    public static Funcionario funcionarioLogado;
 
     /**
      * Creates new form main
@@ -114,13 +114,13 @@ public class main extends javax.swing.JFrame {
         } else {
             for (Funcionario f : funcionarioDAO.buscarTodos()) {
                 if (f.getCpf().equals(cpfFuncionario)) {
-                    funcionario = f;
+                    funcionarioLogado = f;
                     funcionarioExists = true;
                 }
             }
 
             if (funcionarioExists) {
-                if (funcionario.validarSenha(cpfFuncionario, passwordFuncionario)) {
+                if (funcionarioLogado.validarSenha(cpfFuncionario, passwordFuncionario)) {
                     new telaPrincipal().setVisible(true);
                     this.setVisible(false);
                 } else {
