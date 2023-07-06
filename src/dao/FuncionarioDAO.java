@@ -28,7 +28,7 @@ public class FuncionarioDAO {
 
     public boolean salvar(Funcionario funcionario){
 	// query para inserir um novo imóvel
-	String query = "INSERT INTO funcionario (nome, rg, cpf, dataNascimento, telefone, salario, adm) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	String query = "INSERT INTO funcionario (nome, rg, cpf, dataNascimento, telefone, salario, senha, adm) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	PreparedStatement stmt = null;
 	 
 	try {
@@ -48,7 +48,8 @@ public class FuncionarioDAO {
 	    stmt.setDate(4, new java.sql.Date(dataNascimento.getTime()));
 	    stmt.setString(5, funcionario.getTelefone());
 	    stmt.setFloat(6,  funcionario.getSalario());
-	    stmt.setBoolean(7,  funcionario.isAdm());
+            stmt.setString(7, funcionario.getSenha());
+	    stmt.setBoolean(8,  funcionario.isAdm());
 	    // salva os dados no bd
 	    stmt.executeUpdate();
 	    return true;
