@@ -79,7 +79,6 @@ public class Transacao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Transação");
-        setResizable(false);
 
         pnlTransacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Transação"));
         pnlTransacao.setPreferredSize(new java.awt.Dimension(720, 450));
