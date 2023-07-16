@@ -15,139 +15,160 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 /**
  * CRUD DE FUNCIONARIO
+ *
  * @author dyesi
  */
 public class FuncionarioDAO {
+
     private Connection con = null;
 
-    public FuncionarioDAO(){
-	con = Principal.getConnection();
+    public FuncionarioDAO() {
+        con = Principal.getConnection();
     }
 
-    public boolean salvar(Funcionario funcionario){
-	// query para inserir um novo imóvel
-	String query = "INSERT INTO funcionario (nome, rg, cpf, dataNascimento, telefone, salario, senha, adm) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-	PreparedStatement stmt = null;
-	 
-	try {
-	    stmt = con.prepareStatement(query);
-	    stmt.setString(1, funcionario.getNome());
-	    stmt.setString(2, funcionario.getRg());
-	    stmt.setString(3, funcionario.getCpf());
+    public boolean salvar(Funcionario funcionario) {
+        // query para inserir um novo imóvel
+        String query = "INSERT INTO funcionario (nome, rg, cpf, dataNascimento, telefone, salario, senha, adm) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement stmt = null;
 
-	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-	    Date dataNascimento = null;
-	    try {
-		dataNascimento = formato.parse(funcionario.getDataNascimento());
-	    } catch (ParseException e) {
-		e.printStackTrace();
-	    }
+        try {
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getRg());
+            stmt.setString(3, funcionario.getCpf());
 
-	    stmt.setDate(4, new java.sql.Date(dataNascimento.getTime()));
-	    stmt.setString(5, funcionario.getTelefone());
-	    stmt.setFloat(6,  funcionario.getSalario());
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataNascimento = null;
+            try {
+                dataNascimento = formato.parse(funcionario.getDataNascimento());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            stmt.setDate(4, new java.sql.Date(dataNascimento.getTime()));
+            stmt.setString(5, funcionario.getTelefone());
+            stmt.setFloat(6, funcionario.getSalario());
             stmt.setString(7, funcionario.getSenha());
-	    stmt.setBoolean(8,  funcionario.isAdm());
-	    // salva os dados no bd
-	    stmt.executeUpdate();
-	    return true;
-	} catch (SQLException ex) {
-	    System.out.println("erro: "+ex);
-	    return false;
-	} finally {
-	    Principal.closeConnection(con, stmt);
-	}
+            stmt.setBoolean(8, funcionario.isAdm());
+            // salva os dados no bd
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("erro: " + ex);
+            return false;
+        } finally {
+            Principal.closeConnection(con, stmt);
+        }
     }
 
-    public boolean editar(Funcionario funcionario){
-	// query para inserir um novo imóvel
-	String query = "UPDATE funcionario SET id = ?, nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, salario = ?, senha = ?, adm = ? WHERE id = ?";
-	PreparedStatement stmt = null;
+    public boolean editar(Funcionario funcionario) {
+        // query para inserir um novo imóvel
+        String query = "UPDATE funcionario SET id = ?, nome = ?, rg = ?, cpf = ?, dataNascimento = ?, telefone = ?, salario = ?, senha = ?, adm = ? WHERE id = ?";
+        PreparedStatement stmt = null;
 
-	try {
-	    stmt.setString(1, funcionario.getNome());
-	    stmt.setString(2, funcionario.getNome());
-	    stmt.setString(3, funcionario.getRg());
-	    stmt.setString(4, funcionario.getCpf());
+        try {
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getNome());
+            stmt.setString(3, funcionario.getRg());
+            stmt.setString(4, funcionario.getCpf());
 
-	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-	    Date dataNascimento = null;
-	    try {
-		dataNascimento = formato.parse(funcionario.getDataNascimento());
-	    } catch (ParseException e) {
-		e.printStackTrace();
-	    }
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataNascimento = null;
+            try {
+                dataNascimento = formato.parse(funcionario.getDataNascimento());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
-	    stmt.setDate(5, new java.sql.Date(dataNascimento.getTime()));
-	    stmt.setString(6, funcionario.getTelefone());
-	    stmt.setFloat(7,  funcionario.getSalario());
-	    stmt.setString(8,  funcionario.getSenha());
-	    stmt.setBoolean(9,  funcionario.isAdm());
-	    stmt.setInt(10,  funcionario.getId());
-	    // salva os dados no bd
-	    stmt.executeUpdate();
-	    return true;
-	} catch (SQLException ex) {
-	    System.out.println("erro: "+ex);
-	    return false;
-	} finally {
-	    Principal.closeConnection(con, stmt);
-	}
-    }
-    
-    public List<Funcionario> buscarTodos(){
-	String query = "SELECT * FROM funcionario";
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
-	
-	List<Funcionario> funcionarios = new ArrayList<>();
-	
-	try {
-	    stmt = con.prepareStatement(query);
-	    rs = stmt.executeQuery();
-	    
-	    while (rs.next()){
-		Funcionario funcionario = new Funcionario();
-		funcionario.setId(rs.getInt("id"));
-		funcionario.setNome(rs.getString("nome"));
-		funcionario.setRg(rs.getString("rg"));
-		funcionario.setCpf(rs.getString("cpf"));
-		funcionario.setDataNascimento(rs.getString("dataNascimento"));
-		funcionario.setTelefone(rs.getString("telefone"));
-		funcionario.setSalario(rs.getFloat("salario"));
-		funcionario.setSenha(rs.getString("senha"));
-		funcionario.setAdm(rs.getBoolean("adm"));
-		funcionarios.add(funcionario); 
-	    }
-
-	} catch (SQLException ex) {
-	    System.out.println("Erro: "+ex);
-	} finally {
-	    Principal.closeConnection(con, stmt, rs);
-	}
-
-	return funcionarios;
-
+            stmt.setDate(5, new java.sql.Date(dataNascimento.getTime()));
+            stmt.setString(6, funcionario.getTelefone());
+            stmt.setFloat(7, funcionario.getSalario());
+            stmt.setString(8, funcionario.getSenha());
+            stmt.setBoolean(9, funcionario.isAdm());
+            stmt.setInt(10, funcionario.getId());
+            // salva os dados no bd
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("erro: " + ex);
+            return false;
+        } finally {
+            Principal.closeConnection(con, stmt);
+        }
     }
 
-    public boolean excluir(Funcionario funcionario){
-	// query para inserir um novo imóvel
-	String query = "DELETE * FROM funcionario WHERE id = ?";
-	PreparedStatement stmt = null;
+    public Funcionario buscarFuncionarioPorCpf(String cpf) throws SQLException {
+        String query = "SELECT FROM funcionario WHERE cpf = ?";
+        PreparedStatement stmt = con.prepareStatement(query);
+        ResultSet rs = null;
 
-	try {
-	    stmt.setInt(1, funcionario.getId());
-	    // executa a query no bd
-	    stmt.executeUpdate();
-	    return true;
-	} catch (SQLException ex) {
-	    System.out.println("erro: "+ex);
-	    return false;
-	} finally {
-	    Principal.closeConnection(con, stmt);
-	}
+        Funcionario funcionario = new Funcionario();
+
+        stmt.setString(1, cpf);
+
+        rs = stmt.executeQuery();
+
+        funcionario.setId(rs.getInt("id"));
+        funcionario.setNome(rs.getString("nome"));
+        funcionario.setRg(rs.getString("rg"));
+        funcionario.setCpf(rs.getString("cpf"));
+        funcionario.setDataNascimento(rs.getString("dataNascimento"));
+        funcionario.setTelefone(rs.getString("telefone"));
+        funcionario.setSalario(rs.getFloat("salario"));
+        funcionario.setSenha(rs.getString("senha"));
+        funcionario.setAdm(rs.getBoolean("adm"));
+
+        return funcionario;
     }
 
+    public List<Funcionario> buscarTodos() {
+        String query = "SELECT * FROM funcionario";
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Funcionario> funcionarios = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setRg(rs.getString("rg"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setDataNascimento(rs.getString("dataNascimento"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setSalario(rs.getFloat("salario"));
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setAdm(rs.getBoolean("adm"));
+                funcionarios.add(funcionario);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex);
+        } finally {
+            Principal.closeConnection(con, stmt, rs);
+        }
+
+        return funcionarios;
+
+    }
+
+    public boolean excluirFuncionarioPorCpf(String cpf) throws SQLException {
+        // query para inserir um novo imóvel
+        String query = "DELETE FROM funcionario WHERE cpf = ?";
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setString(1, cpf);
+
+        stmt.executeUpdate();
+
+        Principal.closeConnection(con, stmt);
+
+        return true;
+    }
 }
